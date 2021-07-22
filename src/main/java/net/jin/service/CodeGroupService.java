@@ -11,6 +11,7 @@ import net.jin.domain.*;
  */
 public interface CodeGroupService {
 
-	CodeGroup read(String groupCode);
+	//상세조회
+	public CodeGroup read(String groupCode) throws Exception;
 
 }
