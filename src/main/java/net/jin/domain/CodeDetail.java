@@ -6,6 +6,8 @@ package net.jin.domain;
 import java.time.*;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.*;
 
