@@ -28,5 +28,7 @@ public class CodeDetailController {
 			@PathVariable("codeValue") String codeValue) throws Exception{
 		
 		CodeDetail codeDetail = codeDetailService.read(groupCode, codeValue);
+		
+		return ResponseEntity<CodeDetail>(HttpStatus.OK);
 	}
 }
