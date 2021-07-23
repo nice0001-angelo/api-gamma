@@ -11,6 +11,6 @@ import net.jin.domain.*;
  * @author njh
  *
  */
-public interface CodeDetailRepository extends JpaRepository<CodeDetail, ID>{
+public interface CodeDetailRepository extends JpaRepository<CodeDetail, CodeDetailId>{
 
 }

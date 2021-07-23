@@ -14,8 +14,6 @@ import net.jin.domain.*;
 @Service
 public interface CodeDetailService {
 	
-	public CodeDetail read(String groupCode, String codeValue) throws Exception{
-		
-	}
+	public CodeDetail read(CodeDetail codeDetail) throws Exception;
 
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
 import net.jin.domain.*;
+import net.jin.service.*;
 
 /**
  * @author njh
@@ -27,8 +28,10 @@ public class CodeDetailController {
 	public ResponseEntity<CodeDetail> read(@PathVariable("groupCode") String groupCode,
 			@PathVariable("codeValue") String codeValue) throws Exception{
 		
-		CodeDetail codeDetail = codeDetailService.read(groupCode, codeValue);
+		CodeDetail codeDetail = new CodeDetail();
+		codeDetail.setGroupCode(groupCode);
+		codeDetail.setCodeValue(codeValue);
 		
-		return ResponseEntity<CodeDetail>(HttpStatus.OK);
+		return new ResponseEntity<CodeDetail>(codeDetailService.read(codeDetail), HttpStatus.OK);
 	}
 }
