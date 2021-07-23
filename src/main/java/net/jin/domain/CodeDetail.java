@@ -24,7 +24,7 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode(of= {"groupCode","codeValue"})
 @Entity
-@IdClass(CodeDetailId.class)
+@IdClass(CodeDetailId.class) //CodeDetail의 ID를 별도의 클래스로 선언
 @Table(name="code_detail")
 public class CodeDetail {
 	
