@@ -3,6 +3,8 @@
  */
 package net.jin.repository;
 
+import java.util.*;
+
 import org.springframework.data.jpa.repository.*;
 
 import net.jin.domain.*;
@@ -13,6 +15,6 @@ import net.jin.domain.*;
  */
 public interface CodeDetailRepository extends JpaRepository<CodeDetail, CodeDetailId>{
 
-	@Query("SELECT max("cd.sortSeq") FROM CodeDetail cd WHERE cd.groupcode = ?1)
-	
+	@Query("SELECT max(cd.sortSeq) FROM CodeDetail cd WHERE cd.groupCode = ?1")//PQL
+	public List<Object[]> getMaxSortSeq(String groupCode);
 }
