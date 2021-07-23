@@ -3,7 +3,6 @@
  */
 package net.jin.service.impl;
 
-import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
 import lombok.*;
@@ -22,7 +21,14 @@ public class CodeDetailServiceImpl implements CodeGroupService {
 	private final CodeDetailRepository codeDetailRepository;
 	
 	@Override
-	public CodeDetail read(CodeDetail codeDetail) {
+	public CodeDetail read(CodeDetail codeDetail) throws Exception{
+		
+		CodeDetailId codeDetailId = new CodeDetailId();
+		
+		codeDetailId.setGroupCode(codeDetail.getGroupCode());
+		codeDetailId.setCodeValue(codeDetail.getCodeValue());
+		
+		return codeDetailRepository.getMaxSortSeq(codeDetailId);
 		
 	}
 	
