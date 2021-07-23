@@ -11,7 +11,6 @@ import net.jin.domain.*;
  * @author njh
  *
  */
-@Service
 public interface CodeDetailService {
 	
 	public CodeDetail read(CodeDetail codeDetail) throws Exception;
