@@ -16,7 +16,7 @@ import net.jin.service.*;
  */
 @RequiredArgsConstructor
 @Service
-public class CodeDetailServiceImpl implements CodeGroupService {
+public class CodeDetailServiceImpl implements CodeDetailService {
 	
 	private final CodeDetailRepository codeDetailRepository;
 	
