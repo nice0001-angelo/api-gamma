@@ -5,6 +5,7 @@ package net.jin.repository;
 
 import java.util.*;
 
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.jpa.repository.*;
 
 import net.jin.domain.*;
