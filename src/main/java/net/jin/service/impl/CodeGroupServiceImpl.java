@@ -26,4 +26,9 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	public CodeGroup read(String groupCode) throws Exception{
 		return repository.getById(groupCode); //getOne(groupCode) 대신에 썼음
 	}
+	
+	@Override
+	public CodeGroup list() throws Exception{
+		return repository.getClass();
+	}
 }
