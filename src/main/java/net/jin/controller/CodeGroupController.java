@@ -62,7 +62,7 @@ public class CodeGroupController {
 	//@ReponseEntity는 Java 객체를 Http 요청몸체로 변환
 	public ResponseEntity<CodeGroup> update(@RequestBody CodeGroup codeGroup) throws Exception{
 		
-		return new ResponseEntity<CodeGroup>(codeGroupService.update(codeGroup), HttpStatus.OK)
+		return new ResponseEntity<CodeGroup>(codeGroupService.update(codeGroup), HttpStatus.OK);
 	}
 	
 
