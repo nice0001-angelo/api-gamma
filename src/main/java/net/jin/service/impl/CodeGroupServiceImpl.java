@@ -33,6 +33,6 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	
 	@Override
 	public List<CodeGroup> list() throws Exception{
-		return repository.findAll(Sort.by(Direction.DESC, "groupCode"));
+		return repository.findAll(Sort.by(Direction.DESC, "groupCode")); //JAP 메소드를 잘 알아야 함
 	}
 }
