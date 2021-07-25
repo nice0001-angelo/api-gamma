@@ -33,7 +33,10 @@ public class CodeGroupController {
 	
 	//코드그룹 목록보기
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	public 
+	public ResponseEntity<CodeGroup> list() throws Exception{
+		codeGroupService.list();
+		return new ResponseEntity<CodeGroup>(HttpStatus.OK);
+	}
 	
 	
 
