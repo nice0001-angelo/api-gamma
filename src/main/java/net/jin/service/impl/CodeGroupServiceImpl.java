@@ -39,6 +39,7 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	}
 
 	//코드그룹 등록처리
+	@Override
 	public CodeGroup insert(CodeGroup codeGroup) throws Exception{
 		System.out.println("SerivceImpl");
 		codeGroupRepository.save(codeGroup);
@@ -46,6 +47,7 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	}
 	
 	//코드그룹삭제처리
+	@Override
 	public void delete(String codeGroup) throws Exception{
 		System.out.println("delete ServerceImpl");
 		codeGroupRepository.deleteById(codeGroup);

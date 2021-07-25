@@ -44,14 +44,15 @@ public class CodeGroupController {
 	//코드그룹 등록 처리
 	@RequestMapping(value="", method=RequestMethod.POST)
 	public ResponseEntity<CodeGroup> insert(@Validated @RequestBody CodeGroup codeGroup) throws Exception{
-		System.out.println("Controller");
+		System.out.println("insert Controller");
 		return new ResponseEntity<CodeGroup>(codeGroupService.insert(codeGroup), HttpStatus.OK);
 	}
 
 	//코드그룹 삭제 처리
 	@RequestMapping(value="{groupCode}", method=RequestMethod.DELETE)
-	public void delete(@PathVariable("groupCode") String groupCode) throws Exception{
+	public ResponseEntity<Void> delete(@PathVariable("groupCode") String groupCode) throws Exception{
 		codeGroupService.delete(groupCode);
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT); //여기서는 ResponseEntity<Void> 이므로 절대 (HttpStatus.NO_CONTENT) 안에 리턴값을 요하는 codeGroupService.delete(groupCode) 을 넣으면 안된다 
 	}
 	
 
