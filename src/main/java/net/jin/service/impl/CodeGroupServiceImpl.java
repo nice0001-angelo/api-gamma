@@ -6,6 +6,8 @@ package net.jin.service.impl;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.data.domain.*;
+import org.springframework.data.domain.Sort.*;
 import org.springframework.stereotype.*;
 
 import lombok.*;
@@ -31,6 +33,6 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	
 	@Override
 	public List<CodeGroup> list() throws Exception{
-		return repository.findAll();
+		return repository.findAll(Sort.by(Direction.DESC, "groupCode"));
 	}
 }
