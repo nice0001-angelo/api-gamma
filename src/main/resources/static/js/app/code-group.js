@@ -65,6 +65,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//코드그룹 삭제 처리
 	$("#codeGroupDeleteBtn").on("click", function() {
 		$.ajax({
 			type : "DELETE",

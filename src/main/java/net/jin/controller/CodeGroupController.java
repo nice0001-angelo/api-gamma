@@ -48,7 +48,11 @@ public class CodeGroupController {
 		return new ResponseEntity<CodeGroup>(codeGroupService.insert(codeGroup), HttpStatus.OK);
 	}
 
-	
+	//코드그룹 삭제 처리
+	@RequestMapping(value="{groupCode}", method=RequestMethod.DELETE)
+	public void delete(@PathVariable("groupCode") String groupCode) throws Exception{
+		
+	}
 	
 
 }
