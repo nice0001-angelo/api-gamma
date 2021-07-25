@@ -31,6 +31,6 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	
 	@Override
 	public List<CodeGroup> list() throws Exception{
-		return repository.getClass();
+		return repository.findAll();
 	}
 }
