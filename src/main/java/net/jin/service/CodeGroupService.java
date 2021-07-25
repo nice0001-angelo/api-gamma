@@ -20,6 +20,6 @@ public interface CodeGroupService {
 	public CodeGroup read(String groupCode) throws Exception;
 	
 	//코드그룹 등록처리
-	public void insert(CodeGroup codeGroup) throws Exception;
+	public CodeGroup insert(CodeGroup codeGroup) throws Exception;
 
 }

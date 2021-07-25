@@ -39,7 +39,8 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	}
 
 	//코드그룹 등록처리
-	public void insert(CodeGroup codeGroup) throws Exception{
+	public CodeGroup insert(CodeGroup codeGroup) throws Exception{
 		codeGroupRepository.save(codeGroup);
+		return codeGroupRepository.getById(codeGroup.getGroupCode()); 
 	}
 }

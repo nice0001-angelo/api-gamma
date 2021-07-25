@@ -43,8 +43,9 @@ public class CodeGroupController {
 	
 	//코드그룹 등록 처리
 	@RequestMapping(value="", method=RequestMethod.POST)
-	public void insert(CodeGroup codeGroup) throws Exception{
-		codeGroupService.insert(codeGroup);
+	public ResponseEntity<CodeGroup> insert(CodeGroup codeGroup) throws Exception{
+		
+		return new ResponseEntity<CodeGroup>(codeGroupService.insert(codeGroup), HttpStatus.OK);
 	}
 
 	
