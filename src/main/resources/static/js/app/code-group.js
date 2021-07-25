@@ -40,6 +40,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//코드그룹 등록 처리
 	$("#codeGroupRegisterBtn").on("click", function() {
 		var codeGroupObject = {
 			groupCode : $("#groupCode").val(),

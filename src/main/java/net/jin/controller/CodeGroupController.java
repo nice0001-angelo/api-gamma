@@ -41,6 +41,11 @@ public class CodeGroupController {
 		return new ResponseEntity<CodeGroup>(codeGroupService.read(groupCode), HttpStatus.OK); //변수를 리턴한다
 	}
 	
+	//코드그룹 등록 처리
+	@RequestMapping(value="", method=RequestMethod.POST)
+	public void insert(CodeGroup codeGroup) throws Exception{
+		codeGroupService.insert(codeGroup);
+	}
 
 	
 	
