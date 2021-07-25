@@ -3,6 +3,8 @@
  */
 package net.jin.controller;
 
+import java.util.*;
+
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,9 +35,9 @@ public class CodeGroupController {
 	
 	//코드그룹 목록보기
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	public ResponseEntity<CodeGroup> list() throws Exception{
+	public ResponseEntity<List<CodeGroup>> list() throws Exception{
 		//codeGroupService.list(); 아래에 직접 넣어도 된다
-		return new ResponseEntity<CodeGroup>(codeGroupService.list(),HttpStatus.OK);
+		return new ResponseEntity<List<CodeGroup>>(codeGroupService.list(),HttpStatus.OK);
 	}
 	
 	
