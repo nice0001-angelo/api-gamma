@@ -27,9 +27,10 @@ public class CodeGroupController {
 	
 
 	//코드그룹 목록조회
-	@RequestMapping(value="/", method=RequestMethod.GET)
+	@RequestMapping(value="", method=RequestMethod.GET)
 	public ResponseEntity<List<CodeGroup>> list() throws Exception{
 		//codeGroupService.list(); 아래에 직접 넣어도 된다
+		System.out.println("Controller");
 		return new ResponseEntity<List<CodeGroup>>(codeGroupService.list(),HttpStatus.OK);
 	}
 	
@@ -37,7 +38,6 @@ public class CodeGroupController {
 	@RequestMapping(value="{groupCode}", method=RequestMethod.GET)
 	public ResponseEntity<CodeGroup> read(@PathVariable("groupCode") String groupCode) throws Exception{
 		//CodeGroup codeGroup = codeGroupService.read(groupCode); //서비스에서 정한 리턴 타입을 정의 후 변수에 담는다
-		
 		return new ResponseEntity<CodeGroup>(codeGroupService.read(groupCode), HttpStatus.OK); //변수를 리턴한다
 	}
 	

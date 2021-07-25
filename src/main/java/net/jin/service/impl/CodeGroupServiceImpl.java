@@ -29,6 +29,7 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	//코드그룹 목록조회
 	@Override
 	public List<CodeGroup> list() throws Exception{
+		System.out.println("SerivceImpl");
 		return codeGroupRepository.findAll(Sort.by(Direction.DESC, "groupCode")); //JPA 메소드를 잘 알아야 함
 	}
 	
