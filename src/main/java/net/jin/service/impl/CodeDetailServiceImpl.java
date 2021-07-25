@@ -28,7 +28,8 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 		codeDetailId.setGroupCode(codeDetail.getGroupCode());
 		codeDetailId.setCodeValue(codeDetail.getCodeValue());
 		
-		return codeDetailRepository.getMaxSortSeq(codeDetailId);
+		//CodeDetailRepository를 인터페이스로 선언했다 JpaRepository를 상속했기 때문에 JpaRepository의 메소드를 쓸수 있다
+		return codeDetailRepository.getById(codeDetailId);
 		
 	}
 	
