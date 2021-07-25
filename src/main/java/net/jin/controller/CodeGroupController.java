@@ -52,7 +52,17 @@ public class CodeGroupController {
 	@RequestMapping(value="{groupCode}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable("groupCode") String groupCode) throws Exception{
 		codeGroupService.delete(groupCode);
-		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT); //여기서는 ResponseEntity<Void> 이므로 절대 (HttpStatus.NO_CONTENT) 안에 리턴값을 요하는 codeGroupService.delete(groupCode) 을 넣으면 안된다 
+		//여기서는 ResponseEntity<Void> 이므로 절대 (HttpStatus.NO_CONTENT) 안에 리턴값을 요하는 codeGroupService.delete(groupCode) 을 넣으면 안된다
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);  
+	}
+	
+	//코드그룹 수정 처리
+	@RequestMapping(value="{groupCode}", method=RequestMethod.PUT)
+	//@RequestBody는 Http 요청몸체를 Java 객체로 변환
+	//@ReponseEntity는 Java 객체를 Http 요청몸체로 변환
+	public ResponseEntity<CodeGroup> update(@RequestBody CodeGroup codeGroup) throws Exception{
+		
+		return new ResponseEntity<CodeGroup>(codeGroupService.update(codeGroup), HttpStatus.OK)
 	}
 	
 

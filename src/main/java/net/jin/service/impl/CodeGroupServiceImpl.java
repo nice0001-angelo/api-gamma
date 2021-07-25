@@ -46,10 +46,17 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 		return codeGroupRepository.getById(codeGroup.getGroupCode()); 
 	}
 	
-	//코드그룹삭제처리
+	//코드그룹 삭제처리
 	@Override
 	public void delete(String codeGroup) throws Exception{
 		System.out.println("delete ServerceImpl");
 		codeGroupRepository.deleteById(codeGroup);
+	}
+	
+	//코드그룹 수정처리
+	@Override
+	public CodeGroup update(CodeGroup codeGroup) throws Exception{
+		codeGroupRepository.save(codeGroup);
+		return codeGroup;
 	}
 }

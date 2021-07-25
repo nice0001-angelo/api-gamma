@@ -24,4 +24,7 @@ public interface CodeGroupService {
 
 	//코드그룹 삭제처리
 	public void delete(String groupCode) throws Exception;
+	
+	//코드그룹 수정처리
+	public CodeGroup update(CodeGroup codeGroup) throws Exception;
 }
