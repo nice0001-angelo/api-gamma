@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	
+	//코드그룹 목록 조회
 	$("#codeGroupListBtn").on("click", function() {
 		$.ajax({
 			type : "GET",
@@ -17,6 +19,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//코드그룹 상세조회
 	$("#codeGroupReadBtn").on("click", function() {
 		$.ajax({
 			type : "GET",
