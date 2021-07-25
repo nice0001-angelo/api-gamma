@@ -51,7 +51,7 @@ public class CodeGroupController {
 	//코드그룹 삭제 처리
 	@RequestMapping(value="{groupCode}", method=RequestMethod.DELETE)
 	public void delete(@PathVariable("groupCode") String groupCode) throws Exception{
-		
+		codeGroupService.delete(groupCode);
 	}
 	
 
