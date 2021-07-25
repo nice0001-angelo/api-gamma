@@ -3,6 +3,8 @@
  */
 package net.jin.service.impl;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
@@ -28,7 +30,7 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	}
 	
 	@Override
-	public CodeGroup list() throws Exception{
+	public List<CodeGroup> list() throws Exception{
 		return repository.getClass();
 	}
 }
