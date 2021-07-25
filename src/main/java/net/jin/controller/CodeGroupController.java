@@ -6,6 +6,7 @@ package net.jin.controller;
 import java.util.*;
 
 import org.springframework.http.*;
+import org.springframework.validation.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
 import lombok.*;
@@ -30,7 +31,6 @@ public class CodeGroupController {
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public ResponseEntity<List<CodeGroup>> list() throws Exception{
 		//codeGroupService.list(); 아래에 직접 넣어도 된다
-		System.out.println("Controller");
 		return new ResponseEntity<List<CodeGroup>>(codeGroupService.list(),HttpStatus.OK);
 	}
 	
@@ -43,8 +43,8 @@ public class CodeGroupController {
 	
 	//코드그룹 등록 처리
 	@RequestMapping(value="", method=RequestMethod.POST)
-	public ResponseEntity<CodeGroup> insert(CodeGroup codeGroup) throws Exception{
-		
+	public ResponseEntity<CodeGroup> insert(@Validated @RequestBody CodeGroup codeGroup) throws Exception{
+		System.out.println("Controller");
 		return new ResponseEntity<CodeGroup>(codeGroupService.insert(codeGroup), HttpStatus.OK);
 	}
 
