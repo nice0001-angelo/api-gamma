@@ -39,7 +39,7 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 	
 	//코드 등록 처리
 	public CodeDetail insert(CodeDetail codeDetail) throws Exception{
-		return CodeDetail;
+		return codeDetailRepository.save(codeDetail);
 	}
 	
 	

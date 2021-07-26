@@ -40,8 +40,7 @@ public class CodeDetailController {
 	
 	//코드 등록 처리
 	@RequestMapping(value="", method=RequestMethod.POST)
-	public RequestEntity<CodeDetail> insert(@Validated @RequestBody CodeDetail codeDetail){
-		
-		return new RequestEntity<CodeDetail>(codeDetailService.insert(codeDetail), HttpStatus.OK);
+	public ResponseEntity<CodeDetail> insert(@Validated @RequestBody CodeDetail codeDetail) throws Exception{
+		return new ResponseEntity<CodeDetail>(codeDetailService.insert(codeDetail), HttpStatus.OK);
 	}
 }
