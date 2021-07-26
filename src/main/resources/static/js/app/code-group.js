@@ -114,7 +114,7 @@ $(document).ready(function() {
 	});
 	
 	//CodeDetail
-	//CodeDetail 목록조회 List
+	//코드 목록조회 List
 	$("#codeDetailListBtn").on("click",function() {
 		alert("CodeDetail List~!!");
 				$.ajax({
@@ -133,7 +133,7 @@ $(document).ready(function() {
 				});
 			});
 
-	//CodeDetail 상세조회 Read
+	//코드 상세조회 Read
 	$("#codeDetailReadBtn").on("click",function(){
 		alert("Reading~!!");
 				$.ajax({
@@ -156,7 +156,7 @@ $(document).ready(function() {
 	});
 
 	
-	//CodeDetail 등록 Register
+	//코드 등록 insert
 	$("#codeDetailRegisterBtn").on("click",function(){
 			var codeDetailObject = {
 					groupCode : $("#codeGroupCode").val(),
@@ -184,7 +184,7 @@ $(document).ready(function() {
 	});
 	
 
-	//CodeDetail 삭제 Delete
+	//코드 삭제 Delete
 	$("#codeDetailDeleteBtn").on("click", function() {
 		alert("CodeDetail Deleting~!!");
 		$.ajax({
@@ -203,7 +203,7 @@ $(document).ready(function() {
 	});
 
 
-	//CodeDetail 수정 Modify
+	//코드 수정 update
 	$("#codeDetailModifyBtn").on("click", function() {
 		var codeGroupCodeVal = $("#codeGroupCode").val();
 		var codeValueVal = $("#codeValue").val();
@@ -232,7 +232,7 @@ $(document).ready(function() {
 		});
 	});
 	
-	//CodeDetail 입력값 리셋 Reset
+	//코드 입력값 리셋 Reset
 	$("#codeDetailResetBtn").on("click", function() {
 		alert("CodeDetail Resetting~!!");
 		$("#codeGroupCode").val("");
