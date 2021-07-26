@@ -5,6 +5,7 @@ package net.jin.service.impl;
 
 import java.util.*;
 
+import org.springframework.jca.cci.core.support.*;
 import org.springframework.stereotype.*;
 
 import lombok.*;
@@ -64,6 +65,15 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 		return codeDetailRepository.save(codeDetail);
 	}
 	
+	//코드 삭제 처리
+	@Override
+	public void delete(String groupCode, String codeValue) throws Exception{
+		CodeDetailId codeDetailID = new CodeDetailId();
+		codeDetailID.setGroupCode(groupCode);
+		codeDetailID.setCodeValue(codeValue);
+		codeDetailRepository.deleteById(codeDetailID);
+		
+	}
 	
 
 }

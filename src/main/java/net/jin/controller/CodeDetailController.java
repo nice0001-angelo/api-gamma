@@ -53,8 +53,7 @@ public class CodeDetailController {
 	//코드 삭제 처리
 	@RequestMapping(value="{groupCode}/{codeValue}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable("groupCode") String groupCode, @PathVariable("codeValue") String codeValue) throws Exception{
-		
-		
-		return new ResponseEntity<Void>(codeDetailService.delete(groupCode, codeValue), HttpStatus.NO_CONTENT);
+		codeDetailService.delete(groupCode, codeValue);
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 }

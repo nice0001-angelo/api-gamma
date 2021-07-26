@@ -23,4 +23,7 @@ public interface CodeDetailService {
 
 	//코드 등록 처리
 	public CodeDetail insert(CodeDetail codeDetail) throws Exception;
+	
+	//코드 삭제 처리
+	public void delete(String groupCode, String codeValue) throws Exception;
 }
