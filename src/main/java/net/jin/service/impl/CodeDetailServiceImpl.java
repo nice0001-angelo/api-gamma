@@ -75,5 +75,10 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 		
 	}
 	
+	//코드 수정 처리
+	@Override
+	public CodeDetail update(CodeDetail codeDetail) throws Exception{
+		return codeDetailRepository.save(codeDetail);
+	}
 
 }
