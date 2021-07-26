@@ -48,7 +48,7 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 		Integer maxSortSeq = 0;
 		if(rsList.size()>0) {
 			Object[] maxValues = rsList.get(0);
-			System.out.println(maxValues);
+			System.out.println("maxValue======> "+maxValues);
 			if(maxValues!=null && maxValues.length>0) {
 				maxSortSeq = (Integer)maxValues[0];
 			}
