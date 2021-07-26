@@ -17,5 +17,8 @@ import net.jin.domain.*;
 public interface CodeDetailRepository extends JpaRepository<CodeDetail, CodeDetailId>{
 
 	@Query("SELECT max(cd.sortSeq) FROM CodeDetail cd WHERE cd.groupCode = ?1")//PQL: 해당 그룹코드중에 max sortSeq를 가져오는 쿼리
-	public List<Object[]> getMaxSortSeq(String groupCode);
+	//public List<Object[]> getMaxSortSeq(String groupCode);
+	
+	//굳이 위에처럼 List 값으로 처리할 필요가 없다
+	public Integer getMaxSortSeq(String goupCode);
 }
