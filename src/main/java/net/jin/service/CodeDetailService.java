@@ -3,6 +3,8 @@
  */
 package net.jin.service;
 
+import java.util.*;
+
 import org.springframework.stereotype.*;
 
 import net.jin.domain.*;
@@ -14,6 +16,7 @@ import net.jin.domain.*;
 public interface CodeDetailService {
 	
 	//코드 목록 조회
+	public List<CodeDetail> list() throws Exception; 
 	
 	//코드 상세 조회
 	public CodeDetail read(CodeDetail codeDetail) throws Exception;

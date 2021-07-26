@@ -24,6 +24,10 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 	
 	
 	//코드 목록 조회
+	@Override
+	public List<CodeDetail> list(){
+		return codeDetailRepository.findAll(); 
+	}
 	
 	//코드 상세 조회
 	@Override
