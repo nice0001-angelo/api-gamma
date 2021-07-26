@@ -56,9 +56,6 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	//코드그룹 수정처리
 	@Override
 	public CodeGroup update(CodeGroup codeGroup) throws Exception{
-		codeGroup.setGroupCode(codeGroup.getGroupCode());
-		codeGroup.setGroupName(codeGroup.getGroupName());
-		codeGroup.setRegDate(codeGroup.getRegDate());
 		codeGroupRepository.save(codeGroup);
 		return codeGroup;
 	}
