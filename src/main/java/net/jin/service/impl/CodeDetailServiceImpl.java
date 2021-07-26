@@ -88,7 +88,6 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 		
 		CodeDetail afterGetCodeDetailID = codeDetailRepository.getById(codeDetailId);
 		
-		
 		afterGetCodeDetailID.setCodeName(codeDetail.getCodeName());
 		
 		return codeDetailRepository.save(afterGetCodeDetailID);
