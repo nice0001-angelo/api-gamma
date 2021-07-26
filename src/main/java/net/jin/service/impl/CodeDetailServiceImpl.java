@@ -79,11 +79,15 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 	@Override
 	public CodeDetail update(CodeDetail codeDetail) throws Exception{
 		
+		
+		System.out.println("CodeDetailService Impl====> "+codeDetail);
+		
 		CodeDetailId codeDetailId = new CodeDetailId();
 		codeDetailId.setGroupCode(codeDetail.getGroupCode());
 		codeDetailId.setCodeValue(codeDetail.getCodeValue());
 		
 		CodeDetail afterGetCodeDetailID = codeDetailRepository.getById(codeDetailId);
+		
 		
 		afterGetCodeDetailID.setCodeName(codeDetail.getCodeName());
 		
