@@ -57,14 +57,12 @@ public class CodeDetailController {
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 	
-	// 코드 수정 처리
+	// 코드 수정 처리 ==> 제대로 update 안되고 있음 반드시 확인 필요
 	@RequestMapping(value="{groupCode}/{codeValue}", method=RequestMethod.PUT)
 	public ResponseEntity<CodeDetail> update(@PathVariable("groupCode") String groupCode, @PathVariable("codeValue") String codeValue, @Validated @RequestBody CodeDetail codeDetail) throws Exception{
 		
 		System.out.println("CodeDetail Controller ======>");
 		
-//		codeDetail.setGroupCode(groupCode);
-//		codeDetail.setCodeValue(codeValue);
 
 		return new ResponseEntity<CodeDetail>(codeDetail, HttpStatus.OK);
 	}

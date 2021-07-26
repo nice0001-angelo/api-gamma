@@ -86,11 +86,11 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 		codeDetailId.setGroupCode(codeDetail.getGroupCode());
 		codeDetailId.setCodeValue(codeDetail.getCodeValue());
 		
-		CodeDetail afterGetCodeDetailID = codeDetailRepository.getById(codeDetailId);
+		CodeDetail codeDetailEntity = codeDetailRepository.getById(codeDetailId);
 		
-		afterGetCodeDetailID.setCodeName(codeDetail.getCodeName());
+		codeDetailEntity.setCodeName(codeDetail.getCodeName());
 		
-		return codeDetailRepository.save(afterGetCodeDetailID);
+		return codeDetailRepository.save(codeDetailEntity);
 	}
 
 }
