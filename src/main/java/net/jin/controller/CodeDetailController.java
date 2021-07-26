@@ -23,7 +23,7 @@ public class CodeDetailController {
 
 	private final CodeDetailService codeDetailService;
 	
-	//상세조회
+	//코드 상세 조회
 	@RequestMapping(value="/{groupCode}/{codeValue}",method = RequestMethod.GET)
 	public ResponseEntity<CodeDetail> read(@PathVariable("groupCode") String groupCode,
 			@PathVariable("codeValue") String codeValue) throws Exception{
