@@ -20,6 +20,10 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 	
 	private final CodeDetailRepository codeDetailRepository;
 	
+	
+	//코드 목록 조회
+	
+	//코드 상세 조회
 	@Override
 	public CodeDetail read(CodeDetail codeDetail) throws Exception{
 		
@@ -31,6 +35,11 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 		//CodeDetailRepository를 인터페이스로 선언했다 JpaRepository를 상속했기 때문에 JpaRepository의 메소드를 쓸수 있다
 		return codeDetailRepository.getById(codeDetailId);
 		
+	}
+	
+	//코드 등록 처리
+	public CodeDetail insert(CodeDetail codeDetail) throws Exception{
+		return CodeDetail;
 	}
 	
 	
