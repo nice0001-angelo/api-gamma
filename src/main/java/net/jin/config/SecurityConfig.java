@@ -6,6 +6,7 @@ package net.jin.config;
 import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.config.annotation.web.configuration.*;
 
+import lombok.*;
 import lombok.extern.slf4j.*;
 
 /**
@@ -13,6 +14,8 @@ import lombok.extern.slf4j.*;
  *
  */
 @Slf4j
+//인자있는 생성자 자동생성
+@RequiredArgsConstructor
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
@@ -20,8 +23,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity httpSecurity) throws Exception{
 		log.info("Security Configuring....");
 		
-	//폼기반 인증 기능을 사용한다 이걸해야  http://localhost:8080/login 으로 redirect 되지 않는다
-		//httpSecurity.authorizeRequests().antMatchers("/codegroups/delete").authenticated().antMatchers("/board").hasAuthority("ROLE_ADMIN").anyRequest().permitAll();
-		httpSecurity.formLogin();
+		httpSecurity.formLogin().disable().httpBasic().disable();
+		
+		//CORS 사용자 설정
+		//httpSecurity.cors();
+		
+		//csrf() Disable 이걸 하지 않으면 CUD를 할수 없다
+		httpSecurity.csrf().disable();
 	}	
 }
