@@ -3,6 +3,8 @@
  */
 package net.jin.service.impl;
 
+import java.util.*;
+
 import org.springframework.stereotype.*;
 
 import lombok.*;
@@ -39,6 +41,10 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 	
 	//코드 등록 처리
 	public CodeDetail insert(CodeDetail codeDetail) throws Exception{
+		
+		
+		List<Object[]> rsList = codeDetailRepository.getMaxSortSeq(codeDetail.getGroupCode());
+		
 		return codeDetailRepository.save(codeDetail);
 	}
 	
