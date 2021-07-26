@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity httpSecurity) throws Exception{
 		log.info("Security Configuring....");
 		
-		httpSecurity.formLogin().disable().httpBasic().disable();
+		//httpSecurity.formLogin().disable().httpBasic().disable();
 		
 		//CORS 사용자 설정
 		//httpSecurity.cors();

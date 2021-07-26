@@ -45,10 +45,6 @@ public class CodeGroupController {
 	//코드그룹 등록 처리
 	@RequestMapping(value="", method=RequestMethod.POST)
 	public ResponseEntity<CodeGroup> insert(@RequestBody CodeGroup codeGroup) throws Exception{
-		
-		System.out.println("insert Controller");
-		System.out.println(codeGroup.getGroupCode());
-		System.out.println(codeGroup.getGroupName());
 		return new ResponseEntity<CodeGroup>(codeGroupService.insert(codeGroup), HttpStatus.OK);
 	}
 
