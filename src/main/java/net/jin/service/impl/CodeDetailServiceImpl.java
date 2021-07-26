@@ -45,6 +45,17 @@ public class CodeDetailServiceImpl implements CodeDetailService {
 		
 		List<Object[]> rsList = codeDetailRepository.getMaxSortSeq(codeDetail.getGroupCode());
 		
+		Integer maxSortSeq = 0;
+		if(rsList.size()>0) {
+			Object[] maxValues = rsList.get(0);
+			System.out.println(maxValues);
+			if(maxValues!=null && maxValues.length>0) {
+				maxSortSeq = (Integer)maxValues[0];
+			}
+		}
+		
+		codeDetail.setSortSeq(maxSortSeq+1);
+		
 		return codeDetailRepository.save(codeDetail);
 	}
 	
