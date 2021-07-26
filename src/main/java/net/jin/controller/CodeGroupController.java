@@ -9,6 +9,7 @@ import org.springframework.http.*;
 import org.springframework.validation.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
+import ch.qos.logback.classic.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
 import net.jin.domain.*;
@@ -43,8 +44,11 @@ public class CodeGroupController {
 	
 	//코드그룹 등록 처리
 	@RequestMapping(value="", method=RequestMethod.POST)
-	public ResponseEntity<CodeGroup> insert(@Validated @RequestBody CodeGroup codeGroup) throws Exception{
+	public ResponseEntity<CodeGroup> insert(@RequestBody CodeGroup codeGroup) throws Exception{
+		
 		System.out.println("insert Controller");
+		System.out.println(codeGroup.getGroupCode());
+		System.out.println(codeGroup.getGroupName());
 		return new ResponseEntity<CodeGroup>(codeGroupService.insert(codeGroup), HttpStatus.OK);
 	}
 

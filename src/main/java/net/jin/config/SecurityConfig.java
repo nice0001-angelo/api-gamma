@@ -19,8 +19,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception{
 		log.info("Security Configuring....");
-
+		
 	//폼기반 인증 기능을 사용한다 이걸해야  http://localhost:8080/login 으로 redirect 되지 않는다
-	httpSecurity.formLogin();
+		//httpSecurity.authorizeRequests().antMatchers("/codegroups/delete").authenticated().antMatchers("/board").hasAuthority("ROLE_ADMIN").anyRequest().permitAll();
+		httpSecurity.formLogin();
 	}	
 }

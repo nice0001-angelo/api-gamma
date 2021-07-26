@@ -52,7 +52,7 @@ $(document).ready(function() {
 		$.ajax({
 			type : "POST",
 			url : "/codegroups",
-			data : JSON.stringify(codeGroupObject),
+			data : JSON.stringify(codeGroupObject), //JSON.stringify(),
 			contentType : "application/json; charset=UTF-8",
 			success : function() {
 				alert("Created");
