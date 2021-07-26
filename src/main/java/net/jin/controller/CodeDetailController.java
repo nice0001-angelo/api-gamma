@@ -58,4 +58,12 @@ public class CodeDetailController {
 	}
 	
 	// 코드 수정 처리
+	@RequestMapping(value="{groupCode}/{codeValue}", method=RequestMethod.PUT)
+	public ResponseEntity<CodeDetail> update(@PathVariable("groupCode") String groupCode, @PathVariable("codeValue") String codeValue, @PathVariable("codeName") String codeName) throws Exception{
+		CodeDetail codeDetail = new CodeDetail();
+		codeDetail.setGroupCode(groupCode);
+		codeDetail.setCodeValue(codeValue);
+		codeDetail.setCodeName(codeName);
+		return new ResponseEntity<CodeDetail>(codeDetail, HttpStatus.OK);
+	}
 }
