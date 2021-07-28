@@ -3,11 +3,15 @@
  */
 package net.jin.controller;
 
+import java.util.*;
+
+import org.springframework.http.*;
 import org.springframework.security.crypto.password.*;
 import org.springframework.web.bind.annotation.*;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
+import net.jin.domain.*;
 import net.jin.repository.*;
 
 /**
@@ -20,12 +24,15 @@ import net.jin.repository.*;
 @RequestMapping(value="/users")
 public class MemberController {
 	
-	private final MemberRepository memberRepository;
+	private final MemberService memberService;
 	
 	//
 	private final PasswordEncoder passwordEncoder;
 	
 	@RequestMapping(value="", method = RequestMethod.GET)
-	
+	public ResponseEntity<List<Member>> list() throws Exception{
+		
+		return new ResponseEntity<List<Member>>(memberService.list(), HttpStatus.OK);
+	}
 
 }
