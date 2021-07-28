@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
 import net.jin.domain.*;
-import net.jin.repository.*;
+import net.jin.service.*;
 
 /**
  * @author njh
@@ -27,7 +27,7 @@ public class MemberController {
 	private final MemberService memberService;
 	
 	//
-	private final PasswordEncoder passwordEncoder;
+	//private final PasswordEncoder passwordEncoder;
 	
 	@RequestMapping(value="", method = RequestMethod.GET)
 	public ResponseEntity<List<Member>> list() throws Exception{
