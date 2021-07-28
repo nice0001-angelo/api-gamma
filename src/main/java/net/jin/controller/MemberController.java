@@ -32,9 +32,9 @@ public class MemberController {
 	
 	//맴버 전체 목록 조회
 	@RequestMapping(value="", method = RequestMethod.GET)
-	public ResponseEntity<List<Member>> list(@Validated @RequestBody Member member) throws Exception{
+	public ResponseEntity<List<Member>> list() throws Exception{
 	
-		return new ResponseEntity<List<Member>>(memberService.list(member), HttpStatus.OK);
+		return new ResponseEntity<List<Member>>(memberService.list(), HttpStatus.OK);
 		
 	}
 

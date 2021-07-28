@@ -13,6 +13,6 @@ import net.jin.domain.*;
  */
 public interface MemberService {
 	
-	public List<Member> list(Member member) throws Exception;
+	public List<Member> list() throws Exception;
 
 }
