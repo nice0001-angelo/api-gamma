@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.*;
 import org.springframework.validation.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
+import lombok.*;
 import lombok.extern.slf4j.*;
 import net.jin.domain.*;
 import net.jin.service.*;
@@ -31,7 +32,7 @@ public class MemberController {
 	
 	//맴버 전체 목록 조회
 	@RequestMapping(value="", method = RequestMethod.GET)
-	public ResponseEntity<List<Member>> list(@Validated @RequestBody Member member){
+	public ResponseEntity<List<Member>> list(@Validated @RequestBody Member member) throws Exception{
 	
 		return new ResponseEntity<List<Member>>(memberService.list(member), HttpStatus.OK);
 		
