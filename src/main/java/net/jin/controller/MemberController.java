@@ -3,10 +3,12 @@
  */
 package net.jin.controller;
 
+import org.springframework.security.crypto.password.*;
 import org.springframework.web.bind.annotation.*;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
+import net.jin.repository.*;
 
 /**
  * @author njh
@@ -17,5 +19,13 @@ import lombok.extern.slf4j.*;
 @RestController
 @RequestMapping(value="/users")
 public class MemberController {
+	
+	private final MemberRepository memberRepository;
+	
+	//
+	private final PasswordEncoder passwordEncoder;
+	
+	@RequestMapping(value="", method = RequestMethod.GET)
+	
 
 }
