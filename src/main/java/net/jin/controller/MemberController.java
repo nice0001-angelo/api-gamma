@@ -15,8 +15,7 @@ import lombok.extern.slf4j.*;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value="", method = RequestMethod.GET)
-public interface MemberController {
+@RequestMapping(value="/users")
+public class MemberController {
 
-	private final MemberService memberService;
 }
