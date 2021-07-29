@@ -12,6 +12,7 @@ import net.jin.domain.*;
  *
  */
 public interface MemberService {
+	//Member 전체목록 조회
 	public List<Member> list() throws Exception;
 
 }
