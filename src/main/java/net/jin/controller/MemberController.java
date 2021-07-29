@@ -38,7 +38,7 @@ public class MemberController {
 
 	//상세 목록 조회
 	@RequestMapping(value = "/{userNo}", method = RequestMethod.GET)
-	public ResponseEntity<Member> read(Integer userNo) throws Exception{
+	public ResponseEntity<Member> read(@PathVariable("userNo") Long userNo) throws Exception{
 		
 		return new ResponseEntity<Member>(memberService.read(userNo), HttpStatus.OK);
 	}
