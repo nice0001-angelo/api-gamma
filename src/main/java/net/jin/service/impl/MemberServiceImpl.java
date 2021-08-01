@@ -33,4 +33,10 @@ public class MemberServiceImpl implements MemberService{
 	public Member read(Long userNo) throws Exception{
 		return memberRepository.getById(userNo);
 	}
+	
+	//Member 상세 저장
+	public Member insert(Member member) throws Exception{
+		memberRepository.save(member);
+	}
 }
+
