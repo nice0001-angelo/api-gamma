@@ -60,7 +60,7 @@ $(document).ready(function(){
 		});
 	});
 	
-	//Insert all
+	// 상세내역 저장 Insert all
 	$("#memberRegisterBtn").on("click", function() {
 		var memberObject = {
 				userId: $("#memberId").val(),

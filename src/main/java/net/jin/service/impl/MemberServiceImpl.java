@@ -29,7 +29,7 @@ public class MemberServiceImpl implements MemberService{
 		return memberRepository.findAll();
 	}
 
-	//Member 상세내역 조회
+	//Member 상세목록 조회
 	public Member read(Long userNo) throws Exception{
 		return memberRepository.getById(userNo);
 	}

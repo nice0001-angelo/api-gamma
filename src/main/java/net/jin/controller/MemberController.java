@@ -7,6 +7,7 @@ import java.util.*;
 
 import org.springframework.http.*;
 import org.springframework.security.crypto.password.*;
+import org.springframework.validation.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
 import lombok.*;
@@ -41,5 +42,11 @@ public class MemberController {
 	public ResponseEntity<Member> read(@PathVariable("userNo") Long userNo) throws Exception{
 		
 		return new ResponseEntity<Member>(memberService.read(userNo), HttpStatus.OK);
+	}
+	
+	//정보 저장
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public ResponseEntity<Member> insert(@Validated @RequestBody Member member) throws Exception{
+		
 	}
 }
