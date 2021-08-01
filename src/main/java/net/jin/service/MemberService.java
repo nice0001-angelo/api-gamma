@@ -17,4 +17,7 @@ public interface MemberService {
 
 	//Member 상세목록 조회
 	public Member read(Long userNo) throws Exception;
+	
+	//Member 상세 저장 insert
+	public Member insert(Member member) throws Exception;
 }
