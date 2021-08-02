@@ -38,5 +38,10 @@ public class MemberServiceImpl implements MemberService{
 	public Member insert(Member member) throws Exception{
 		return memberRepository.save(member);
 	}
+	
+	//Member 삭제
+	public void delete(Long userNo) throws Exception{
+		return memberRepository.deleteById(userNo);
+	}
 }
 

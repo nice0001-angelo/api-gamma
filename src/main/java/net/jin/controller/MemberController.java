@@ -53,5 +53,7 @@ public class MemberController {
 	
 	//Member 정보 삭제
 	@RequestMapping(value = "/{userNo}", method = RequestMethod.DELETE)
-	public ResponseEntity<Void>
+	public ResponseEntity<Void> delete(@PathVariable("userNo") Long userNo) throws Exception{
+		return new ResponseEntity<Void>(memberService.delete(userNo), HttpStatus.NO_CONTENT);
+	}
 }

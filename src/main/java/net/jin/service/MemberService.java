@@ -20,4 +20,7 @@ public interface MemberService {
 	
 	//Member 상세 저장 insert
 	public Member insert(Member member) throws Exception;
+	
+	//Member 상세 삭제
+	public void delete(Long userNo) throws Exception;
 }
