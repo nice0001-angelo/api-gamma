@@ -36,7 +36,7 @@ public class MemberServiceImpl implements MemberService{
 	
 	//Member 상세 저장
 	public Member insert(Member member) throws Exception{
-		memberRepository.save(member);
+		return memberRepository.save(member);
 	}
 }
 
