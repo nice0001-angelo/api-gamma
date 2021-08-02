@@ -48,6 +48,6 @@ public class MemberController {
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<Member> insert(@Validated @RequestBody Member member) throws Exception{
 		
-		return new ResponseEntity<Member>(memberService.insert(mebmer), HttpStatus.OK);
+		return new ResponseEntity<Member>(memberService.insert(member), HttpStatus.OK);
 	}
 }
