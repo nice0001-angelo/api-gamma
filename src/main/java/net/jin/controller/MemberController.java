@@ -47,8 +47,8 @@ public class MemberController {
 	//Member 정보 저장 Insert
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<Member> insert(@Validated @RequestBody Member member) throws Exception{
-		PasswordEncoder encryptedPassword = passwordEncoder.toString(member.getUserPw());
-		
+		String encryptedPassword = passwordEncoder.encode(member.getUserPw());
+		member.setUserPw(encryptedPassword);
 		return new ResponseEntity<Member>(memberService.insert(member), HttpStatus.OK);
 	}
 	
