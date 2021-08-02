@@ -23,4 +23,7 @@ public interface MemberService {
 	
 	//Member 상세 삭제
 	public void delete(Long userNo) throws Exception;
+	
+	//Member 수정
+	public Member update(Member member) throws Exception;
 }

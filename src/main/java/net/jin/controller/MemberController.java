@@ -59,4 +59,11 @@ public class MemberController {
 		//여기서는 ResponseEntity<Void> 이므로 절대 (HttpStatus.NO_CONTENT) 안에 리턴값을 요하는 memberService.delete(userNo)을 넣으면 안된다
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
+	
+	//Member 정보 수정
+	@RequestMapping(value = "/{userNo}", method = RequestMethod.PUT)
+	public ResponseEntity<Member> update(@Validated @RequestBody Member member) throws Exception{
+		
+		return new ResponseEntity<Member>(memberService.update(member), HttpStatus.OK);
+	}
 }

@@ -43,5 +43,12 @@ public class MemberServiceImpl implements MemberService{
 	public void delete(Long userNo) throws Exception{
 		memberRepository.deleteById(userNo);
 	}
+	
+	//Member 수정
+	public Member update(Member member) throws Exception{
+		String encryptedPassword = member.getUserPw();
+		member.setUserPw(encryptedPassword);
+		return memberRepository.save(member);
+	}
 }
 
