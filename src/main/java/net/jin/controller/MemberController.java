@@ -44,10 +44,14 @@ public class MemberController {
 		return new ResponseEntity<Member>(memberService.read(userNo), HttpStatus.OK);
 	}
 	
-	//정보 저장
+	//Member 정보 저장 Insert
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<Member> insert(@Validated @RequestBody Member member) throws Exception{
 		
 		return new ResponseEntity<Member>(memberService.insert(member), HttpStatus.OK);
 	}
+	
+	//Member 정보 삭제
+	@RequestMapping(value = "/{userNo}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void>
 }
