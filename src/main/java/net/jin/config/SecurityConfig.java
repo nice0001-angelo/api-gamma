@@ -43,9 +43,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 	
 	//비밀번호 암호 처리기 생성
-//	@Bean
-//	public PasswordEncoder passwordEncoder() {
-//		//- BCryptPasswordEncoder는 BCrypt 해싱 함수(BCrypt hashing function)를 사용해서 비밀번호를 인코딩해주는 메서드와 사용자의 의해 제출된 비밀번호와 저장소에 저장되어 있는 비밀번호의 일치 여부를 확인해주는 메서드를 제공합니다.
-//		return new BCryptPasswordEncoder();
-//	}
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		//- BCryptPasswordEncoder는 BCrypt 해싱 함수(BCrypt hashing function)를 사용해서 비밀번호를 인코딩해주는 메서드와 사용자의 의해 제출된 비밀번호와 저장소에 저장되어 있는 비밀번호의 일치 여부를 확인해주는 메서드를 제공합니다.
+		return new BCryptPasswordEncoder();
+	}
 }

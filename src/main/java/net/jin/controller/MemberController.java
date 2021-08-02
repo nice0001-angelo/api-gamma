@@ -28,7 +28,7 @@ public class MemberController {
 	private final MemberService memberService;
 	
 	//비밀번호 암호 처리기
-//	private final PasswordEncoder passwordEncoder;
+	private final PasswordEncoder passwordEncoder;
 	
 	//전체 목록 조회
 	@RequestMapping(value="", method = RequestMethod.GET)
@@ -47,6 +47,7 @@ public class MemberController {
 	//Member 정보 저장 Insert
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<Member> insert(@Validated @RequestBody Member member) throws Exception{
+		PasswordEncoder encryptedPassword = passwordEncoder.toString(member.getUserPw());
 		
 		return new ResponseEntity<Member>(memberService.insert(member), HttpStatus.OK);
 	}
