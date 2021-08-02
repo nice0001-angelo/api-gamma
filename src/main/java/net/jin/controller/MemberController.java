@@ -54,6 +54,8 @@ public class MemberController {
 	//Member 정보 삭제
 	@RequestMapping(value = "/{userNo}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable("userNo") Long userNo) throws Exception{
-		return new ResponseEntity<Void>(memberService.delete(userNo), HttpStatus.NO_CONTENT);
+		memberService.delete(userNo);
+		//여기서는 ResponseEntity<Void> 이므로 절대 (HttpStatus.NO_CONTENT) 안에 리턴값을 요하는 memberService.delete(userNo)을 넣으면 안된다
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 }
