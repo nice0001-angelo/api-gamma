@@ -45,7 +45,7 @@ public class CodeSerivceImpl implements CodeService{
 		return codeGroupList;
 	}
 	
-	//지정된 코드그룹의 코드상세 목록 조회
+	//지정된 코드그룹의 코드상세 목록 조회 ==> 이렇게 하므로써 member.js 에서 List 값을 가져다가 값을 세팅함
 	@Override
 	public List<CodeLabelValue> getCodeList(String groupCode) throws Exception{
 		
