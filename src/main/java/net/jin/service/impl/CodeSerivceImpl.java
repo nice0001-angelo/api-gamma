@@ -23,7 +23,11 @@ import net.jin.service.*;
 @Service
 public class CodeSerivceImpl implements CodeService{
 	
+	//코드그룹 레파지토리 선언
 	private final CodeGroupRepository codeGroupRepository;
+	
+	//코드상세 레파지토리 선언
+	private final CodeDetailRepository codeDetailRepository;
 	
 	//코드그룹 목록 조회
 	@Override
@@ -37,6 +41,12 @@ public class CodeSerivceImpl implements CodeService{
 		}
 		
 		return codeGroupList;
+	}
+	
+	//코드상세 목록 조회
+	@Override
+	public List<CodeLabelValue> getCodeList(String groupCode) throws Exception{
+		codeDetailRepository.getById()
 	}
 
 }

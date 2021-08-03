@@ -33,6 +33,10 @@ public class CodeController {
 		
 	//직업코드 목록조회
 	@RequestMapping(value = "/job", method = RequestMethod.GET)
+	public ResponseEntity<List<CodeLabelValue>> jobList() throws Exception() {
+		codeService.getCodeList();
+		return new ResponseEntity<List<CodeLabelValue>>(Http);
+	}
 	
 
 }
