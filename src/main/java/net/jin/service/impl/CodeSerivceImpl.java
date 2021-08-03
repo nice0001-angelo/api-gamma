@@ -51,9 +51,13 @@ public class CodeSerivceImpl implements CodeService{
 		
 		List<CodeDetail> codeDetails = codeDetailRepository.getCodeList(groupCode);
 		
-		List<CodeLabelValue> codeLabelValue = new ArrayList<CodeLabelValue>();
+		List<CodeLabelValue> codeList = new ArrayList<CodeLabelValue>();
 		
-		for(CodeDetail codeDetail : codeDetails)
+		for(CodeDetail codeDetail : codeDetails) {
+			codeList.add(new CodeLabelValue(codeDetail.getCodeValue(), codeDetail.getCodeName()));
+		}
+		
+		return codeList;
 	}
 
 }
