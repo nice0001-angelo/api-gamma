@@ -43,10 +43,11 @@ public class CodeSerivceImpl implements CodeService{
 		return codeGroupList;
 	}
 	
-	//코드상세 목록 조회
+	//지정된 코드그룹의 코드상세 목록 조회
 	@Override
 	public List<CodeLabelValue> getCodeList(String groupCode) throws Exception{
-		codeDetailRepository.getById()
+		
+		codeDetailRepository.getById(groupCode)
 	}
 
 }
