@@ -31,7 +31,8 @@ public class CodeController {
 		return new ResponseEntity<List<CodeLabelValue>>(codeService.getCodeGroupList(), HttpStatus.OK);
 	}
 		
-	
+	//직업코드 목록조회
+	@RequestMapping(value = "/job", method = RequestMethod.GET)
 	
 
 }

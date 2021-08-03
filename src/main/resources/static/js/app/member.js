@@ -174,6 +174,7 @@ $(document).ready(function(){
 	//화면 초기값 로딩
 	$.getJSON("/codes/job", function(list){
 		$(list).each(function(){
+			//CodeLabelValue 객체로 부터 직업코드 값과 직업명을 가져오기 위한 코드
 			var str = "<option value= '"+ this.value + "'>" + this.label + "</option>";
 			$("#job").append(str);
 		});
