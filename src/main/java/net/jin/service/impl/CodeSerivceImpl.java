@@ -4,7 +4,9 @@
 package net.jin.service.impl;
 
 import java.util.*;
+import java.util.List;
 
+import org.hibernate.mapping.*;
 import org.springframework.data.domain.*;
 import org.springframework.data.domain.Sort.*;
 import org.springframework.stereotype.*;
@@ -47,7 +49,11 @@ public class CodeSerivceImpl implements CodeService{
 	@Override
 	public List<CodeLabelValue> getCodeList(String groupCode) throws Exception{
 		
-		codeDetailRepository.getById(groupCode)
+		List<CodeDetail> codeDetails = codeDetailRepository.getCodeList(groupCode);
+		
+		List<CodeLabelValue> codeLabelValue = new ArrayList<CodeLabelValue>();
+		
+		for(CodeDetail codeDetail : codeDetails)
 	}
 
 }

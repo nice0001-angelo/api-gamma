@@ -23,5 +23,7 @@ public interface CodeDetailRepository extends JpaRepository<CodeDetail, CodeDeta
 	//굳이 위에처럼 List 값으로 처리할 필요가 없다. 왜냐하면 위의 쿼리에서 나오는 값은 어짜피 유일하게 1개만 나온다.
 	public Integer getMaxSortSeq(String groupCode);
 	
-	public List<CodeLabelValue> getCodeList(String groupCode);
+	//groupCode에 코드 상세 정보 모두를 받아서 implement에서 처리함
+	@Query("SELECT cd FROM CodeDetail cd WHERE cd.groupCode = ?1")
+	public List<CodeDetail> getCodeList(String groupCode);
 }
