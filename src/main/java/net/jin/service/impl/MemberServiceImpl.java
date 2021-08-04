@@ -32,7 +32,8 @@ public class MemberServiceImpl implements MemberService{
 		
 		for(Object[] valueArray : valueArrays) {
 			Member member = new Member();
-			member.setUserNo(valueArray[0]);
+			member.setUserNo((Long)valueArray[0]);
+			member.setUserId((String)valueArray[1]);
 			
 		}
 		
