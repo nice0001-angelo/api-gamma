@@ -26,10 +26,18 @@ public class MemberServiceImpl implements MemberService{
 	
 	//Member 전체목록 조회
 	public List<Member> list() throws Exception{
-		List<Object[]> listMembers = memberRepository.listAllMember();
+		List<Object[]> valueArrays = memberRepository.listAllMember();
 		
+		List<Member> memberList = new ArrayList<Member>();
 		
-		return 
+		for(Object[] valueArray : valueArrays) {
+			Member member = new Member();
+			member.setUserNo(valueArray[0]);
+			
+		}
+		
+		return memberList;
+				
 	}
 
 	//Member 상세목록 조회
