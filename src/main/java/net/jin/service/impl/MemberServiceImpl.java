@@ -3,6 +3,7 @@
  */
 package net.jin.service.impl;
 
+import java.time.*;
 import java.util.*;
 
 import org.springframework.stereotype.*;
@@ -34,8 +35,14 @@ public class MemberServiceImpl implements MemberService{
 			Member member = new Member();
 			member.setUserNo((Long)valueArray[0]);
 			member.setUserId((String)valueArray[1]);
-			
+			member.setUserPw((String)valueArray[2]);
+			member.setUserName((String)valueArray[3]);
+			member.setJob((String)valueArray[4]);
+			member.setCoin((int)valueArray[5]);
+			member.setRegDate((LocalDateTime)valueArray[6]);
+			memberList.add(member);
 		}
+		
 		
 		return memberList;
 				
