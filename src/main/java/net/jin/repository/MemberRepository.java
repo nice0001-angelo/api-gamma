@@ -20,6 +20,6 @@ public interface MemberRepository extends JpaRepository<Member, Long>{
 			+ "INNER JOIN CodeDetail cd ON cd.codeValue = m.job "
 			+ "INNER JOIN CodeGroup cg ON cg.groupCode = cd.groupCode "
 			+ "WHERE cg.groupCode = 'A01' ORDER BY m.regDate DESC")
-	public List<Object[]> listAllMember();
+	public List<Object[]> listAllMember(); // Object 타입의 Array 임. 각각의 Array는 자리수에 구애받지 않음 char[]는 char가 1자리이므로 각 array 자리수는 1
 
 }

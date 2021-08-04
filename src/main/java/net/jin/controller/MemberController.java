@@ -64,6 +64,8 @@ public class MemberController {
 	@RequestMapping(value = "/{userNo}", method = RequestMethod.PUT)
 	public ResponseEntity<Member> update(@PathVariable("userNo") Long userNo, @Validated @RequestBody Member member) throws Exception{
 		
+		member.setUserNo(userNo);
+		
 		return new ResponseEntity<Member>(memberService.update(member), HttpStatus.OK);
 	}
 }

@@ -121,7 +121,7 @@ $(document).ready(function(){
 				userPw: $("#memberPw").val(),
 				userName: $("memberName").val(),
 				job: $("#job").val(),
-				memberAuthList:[
+				authList:[
 					{
 						userNo: userNoVal,
 						auth: $("#memberAuth0").val()

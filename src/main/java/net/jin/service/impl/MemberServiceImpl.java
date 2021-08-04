@@ -26,7 +26,10 @@ public class MemberServiceImpl implements MemberService{
 	
 	//Member 전체목록 조회
 	public List<Member> list() throws Exception{
-		return memberRepository.findAll();
+		List<Object[]> listMembers = memberRepository.listAllMember();
+		
+		
+		return 
 	}
 
 	//Member 상세목록 조회
