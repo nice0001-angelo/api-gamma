@@ -63,7 +63,7 @@ public class Member {
 	
 	//회원권한과 연관관계 매핑
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name="user_no")
+	@JoinColumn(name="user_no") //name= 에는 매핑할 외래키 이름을 지정한다
 	private List<MemberAuth> authList = new ArrayList<MemberAuth>();
 	
 	public void addAuth(MemberAuth auth) {

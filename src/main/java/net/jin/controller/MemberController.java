@@ -60,7 +60,7 @@ public class MemberController {
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 	
-	//Member 정보 수정
+	//Member 정보 수정: Front 에서 memberObject 로 보낸 항목에 userNo는 없으므로 별도로 PathVariable로 받아 와야함
 	@RequestMapping(value = "/{userNo}", method = RequestMethod.PUT)
 	public ResponseEntity<Member> update(@Validated @RequestBody Member member) throws Exception{
 		
