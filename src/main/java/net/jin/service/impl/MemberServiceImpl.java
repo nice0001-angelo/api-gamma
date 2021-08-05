@@ -62,6 +62,15 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public Member insert(Member member) throws Exception{
 		
+		//member.js 에서 data 로 넘긴 values
+		Member memberEntity = new Member();
+		memberEntity.setUserId(member.getUserId());
+		memberEntity.setUserPw(member.getUserPw());
+		memberEntity.setUserName(member.getUserName());
+		memberEntity.setJob(member.getJob());
+		
+		
+		
 		return memberRepository.save(member);
 	}
 	
