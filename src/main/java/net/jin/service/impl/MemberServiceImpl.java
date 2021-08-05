@@ -77,7 +77,14 @@ public class MemberServiceImpl implements MemberService{
 		//Member domain 의 authList 변수(MemberAuth 타입의 List)에 memberAuth 할당
 		memberEntity.addAuth(memberAuth);
 		
-		return memberRepository.save(member);
+		//memberRepository에 memberEntity 값을 save
+		memberRepository.save(memberEntity);
+		
+		//member에 userNo를 Set ==> 이부분을 이해못함
+		member.setUserNo(memberEntity.getUserNo());
+		
+		//member 결과값 return
+		return member;
 	}
 	
 	//Member 삭제
