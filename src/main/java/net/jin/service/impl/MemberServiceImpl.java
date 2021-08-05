@@ -96,6 +96,11 @@ public class MemberServiceImpl implements MemberService{
 	//Member 수정
 	@Override
 	public Member update(Member member) throws Exception{
+		//Member 타입으로 Controller로 부터 userNo, userId, userPw, userName, job, authList 받아옴
+		
+		//memberEntity 변수를 Member 타입으로 생성
+		Member memberEntity = new Member();
+		
 		String encryptedPassword = member.getUserPw();
 		member.setUserPw(encryptedPassword);
 		return memberRepository.save(member);
