@@ -53,6 +53,8 @@ public class MemberServiceImpl implements MemberService{
 
 	//Member 상세목록 조회
 	public Member read(Long userNo) throws Exception{
+		//여기 작업해야함
+		System.out.println();
 		return memberRepository.getById(userNo);
 	}
 	
