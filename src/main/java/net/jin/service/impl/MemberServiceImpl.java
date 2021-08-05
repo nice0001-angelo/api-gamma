@@ -62,14 +62,20 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public Member insert(Member member) throws Exception{
 		
-		//member.js 에서 data 로 넘긴 values
+		//member.js 에서 data 로 넘긴 values 를  memberEntity 변수에 세팅
 		Member memberEntity = new Member();
 		memberEntity.setUserId(member.getUserId());
 		memberEntity.setUserPw(member.getUserPw());
 		memberEntity.setUserName(member.getUserName());
 		memberEntity.setJob(member.getJob());
 		
+		//MemberAuth 도메인의 auth 변수에 "ROLE_MEMBER" 세팅
+		MemberAuth memberAuth = new MemberAuth();
+		memberAuth.setAuth("ROLE_MEMBER");
 		
+		//memberEntity 변수에 auth 값을 할당
+		//Member domain 의 authList 변수(MemberAuth 타입의 List)에 memberAuth 할당
+		memberEntity.addAuth(memberAuth);
 		
 		return memberRepository.save(member);
 	}
