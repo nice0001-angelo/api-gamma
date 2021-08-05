@@ -26,6 +26,7 @@ public class MemberServiceImpl implements MemberService{
 	private final MemberRepository memberRepository;
 	
 	//Member 전체목록 조회(Memeber 의 컬럼 value를 Member 구조체 형태로 record로 나열
+	@Override
 	public List<Member> list() throws Exception{
 		//Repository로 부터 object[] 타입으로 각각의 컬럼을 가져와서 각각의 행을 list로 반환하기 위해서 선언한다: listAllMember는 레파지토리에 선언
 		List<Object[]> valueArrays = memberRepository.listAllMember();
@@ -52,23 +53,26 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	//Member 상세목록 조회
+	@Override
 	public Member read(Long userNo) throws Exception{
-		//여기 작업해야함
-		System.out.println();
 		return memberRepository.getById(userNo);
 	}
 	
 	//Member 상세 저장
+	@Override
 	public Member insert(Member member) throws Exception{
+		
 		return memberRepository.save(member);
 	}
 	
 	//Member 삭제
+	@Override
 	public void delete(Long userNo) throws Exception{
 		memberRepository.deleteById(userNo);
 	}
 	
 	//Member 수정
+	@Override
 	public Member update(Member member) throws Exception{
 		String encryptedPassword = member.getUserPw();
 		member.setUserPw(encryptedPassword);

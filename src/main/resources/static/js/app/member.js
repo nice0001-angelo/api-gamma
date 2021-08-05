@@ -40,16 +40,16 @@ $(document).ready(function(){
 				$("#memberPw").val(data.userPassword);
 				$("#memberName").val(data.userName);
 				$("#job").val(data.job);
-				if(data.memberAuthList[0]){
-					$("#memberAuth0").val(data.memberAuthList[0].auth);
+				if(data.authList[0]){
+					$("#memberAuth0").val(data.authList[0].auth);
 				}
 				
 				if(data.memberAuthList[1]){
-					$("#memberAuth1").val(data.memberAuthList[1].auth);
+					$("#memberAuth1").val(data.authList[1].auth);
 				}
 				
 				if(data.memberAuthList[2]){
-					$("#memberAuth2").val(data.memberAuthList[2].auth);
+					$("#memberAuth2").val(data.authList[2].auth);
 				}
 			},
 			error: function(xhr, status, error){
