@@ -110,7 +110,7 @@ public class MemberServiceImpl implements MemberService{
 		List<MemberAuth> authList = member.getAuthList();
 		
 		for(int i =0; i<authList.size(); i++) {
-			Member auth = authList.get(i);
+			MemberAuth auth = authList.get(i);
 			
 			if(i < memberAuthList.size()) {
 				MemberAuth memberAuth = memberAuthList.get(i);
