@@ -103,8 +103,15 @@ public class MemberServiceImpl implements MemberService{
 		memberEntity.setUserName(member.getUserName());
 		memberEntity.setJob(member.getJob());
 		
-		//MemberAuth 타입의 List인 AuthList를 가져다가 memberAuthList 변수에 할당
+		//MemberAuth 타입의 List인 AuthList를 memberEntity로부터 가져다가 memberAuthList 변수에 할당
 		List<MemberAuth> memberAuthList = memberEntity.getAuthList(); 
+		
+		//MemberAuth 타입의 List인 AuthList를 member로부터 가져다가 authList 변수에 할당
+		List<MemberAuth> authList = member.getAuthList();
+		
+		for(int i =0; i<authList.size(); i++) {
+			
+		}
 		
 		String encryptedPassword = member.getUserPw();
 		member.setUserPw(encryptedPassword);
