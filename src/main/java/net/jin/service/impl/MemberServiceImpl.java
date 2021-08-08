@@ -108,7 +108,9 @@ public class MemberServiceImpl implements MemberService{
 		
 		String encryptedPassword = member.getUserPw();
 		member.setUserPw(encryptedPassword);
+		System.out.println();
 		return memberRepository.save(member);
+		
 	}
 }
 
