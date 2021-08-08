@@ -112,11 +112,11 @@ public class MemberServiceImpl implements MemberService{
 		for(int i =0; i<authList.size(); i++) {
 			MemberAuth auth = authList.get(i);
 			
+			//member로부터 가져온 authList를  memberEntity의 authList에 할당한다 이 구조를 잘 이해해야함
 			if(i < memberAuthList.size()) {
 				MemberAuth memberAuth = memberAuthList.get(i);
 				memberAuth.setAuth(auth.getAuth());
 			}
-			
 		}
 		
 		return memberRepository.save(memberEntity);
