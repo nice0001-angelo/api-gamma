@@ -110,13 +110,16 @@ public class MemberServiceImpl implements MemberService{
 		List<MemberAuth> authList = member.getAuthList();
 		
 		for(int i =0; i<authList.size(); i++) {
+			Member auth = authList.get(i);
+			
+			if(i < memberAuthList.size()) {
+				MemberAuth memberAuth = memberAuthList.get(i);
+				memberAuth.setAuth(auth.getAuth());
+			}
 			
 		}
 		
-		String encryptedPassword = member.getUserPw();
-		member.setUserPw(encryptedPassword);
-		System.out.println();
-		return memberRepository.save(member);
+		return memberRepository.save(memberEntity);
 		
 	}
 }
