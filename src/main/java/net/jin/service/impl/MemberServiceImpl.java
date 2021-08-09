@@ -123,9 +123,18 @@ public class MemberServiceImpl implements MemberService{
 		
 	}
 	
+	//member 테이블의 건수 체크
 	@Override
-	public Long countAll() {
+	public Long countAll() throws Exception{
 		return memberRepository.count();
 	}
+	
+	//member에 값이 없으면 admin 값 생성
+	@Override
+	public Member setupAdmin(Member member) throws Exception{
+		
+		re
+	}
+	
 }
 

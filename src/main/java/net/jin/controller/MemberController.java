@@ -52,7 +52,8 @@ public class MemberController {
 	//Member 정보 저장 Insert
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<Member> insert(@Validated @RequestBody Member member) throws Exception{
-		String encryptedPassword = passwordEncoder.encode(member.getUserPw());
+		String inputPassword = member.getUserPw();
+		String encryptedPassword = passwordEncoder.encode(inputPassword);
 		member.setUserPw(encryptedPassword);
 		return new ResponseEntity<Member>(memberService.insert(member), HttpStatus.OK);
 	}
@@ -80,6 +81,14 @@ public class MemberController {
 		
 		//회원존재여부 확인
 		if(memberService.countAll()==0) {
+			
+			//Password 세팅
+			String inputPassword = member.getUserPw();
+			String encryptedPassoword = passwordEncoder.encode(inputPassword);
+			member.setUserPw(encryptedPassoword);
+			
+			//Job 세팅
+			member.setJob("00");
 			
 		}
 	}
