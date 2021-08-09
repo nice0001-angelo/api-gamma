@@ -26,4 +26,7 @@ public interface MemberService {
 	
 	//Member 수정
 	public Member update(Member member) throws Exception;
+	
+	//Mmeber테이블에 데이터 존재여부 체크
+	public Long countAll() throws Exception;
 }

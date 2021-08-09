@@ -122,5 +122,10 @@ public class MemberServiceImpl implements MemberService{
 		return memberRepository.save(memberEntity);
 		
 	}
+	
+	@Override
+	public Long countAll() {
+		return memberRepository.count();
+	}
 }
 

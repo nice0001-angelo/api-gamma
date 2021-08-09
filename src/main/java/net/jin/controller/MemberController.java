@@ -78,6 +78,10 @@ public class MemberController {
 	@RequestMapping(value="/setup", produces = "text/plain:charset=UTF-8", method = RequestMethod.POST)
 	public ResponseEntity<String> setupAdmin(@Validated @RequestBody Member member) throws Exception{
 		
+		//회원존재여부 확인
+		if(memberService.countAll()==0) {
+			
+		}
 	}
 	
 	
