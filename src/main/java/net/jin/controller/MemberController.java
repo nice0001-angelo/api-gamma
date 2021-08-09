@@ -77,7 +77,7 @@ public class MemberController {
 	
 	//회원테이블에 데이터가 없으면 최초관리자를 생성한다
 	@RequestMapping(value="/setup", produces = "text/plain:charset=UTF-8", method = RequestMethod.POST)
-	public ResponseEntity<Member> setupAdmin(@Validated @RequestBody Member member) throws Exception{
+	public ResponseEntity<String> setupAdmin(@Validated @RequestBody Member member) throws Exception{
 		
 		//회원존재여부 확인
 		if(memberService.countAll()==0) {
@@ -90,7 +90,9 @@ public class MemberController {
 			//Job 세팅
 			member.setJob("00");
 			
-			return new ResponseEntity<Member>(memberService.setupAdmin(member), HttpStatus.OK);
+			memberService.setupAdmin(member);
+			
+			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		}
 	}
 	
