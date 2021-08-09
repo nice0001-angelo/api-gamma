@@ -77,4 +77,5 @@ public class MemberController {
 	//회원테이블에 데이터가 없으면 최초관리자를 생성한다
 	@RequestMapping(value="/setup", produces = "text/plain:charset=UTF-8", method = RequestMethod.POST)
 	
+	
 }
