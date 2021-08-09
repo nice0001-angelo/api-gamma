@@ -132,8 +132,7 @@ public class MemberServiceImpl implements MemberService{
 	//member에 값이 없으면 admin 값 생성
 	@Override
 	public Member setupAdmin(Member member) throws Exception{
-		
-		re
+		return memberRepository.save(member);
 	}
 	
 }
