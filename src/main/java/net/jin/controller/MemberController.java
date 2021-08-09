@@ -92,8 +92,13 @@ public class MemberController {
 			
 			memberService.setupAdmin(member);
 			
-			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);	
 		}
+		
+		//최초관리자 생성 불가 메시지
+		String message = messageSource.getMessage("cannotSetupAdmin", null, Locale.KOREAN);
+		
+		return new ResponseEntity<String>(message, HttpStatus.BAD_REQUEST);
 	}
 	
 	
