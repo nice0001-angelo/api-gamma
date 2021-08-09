@@ -5,6 +5,7 @@ package net.jin.controller;
 
 import java.util.*;
 
+import org.springframework.context.*;
 import org.springframework.http.*;
 import org.springframework.security.crypto.password.*;
 import org.springframework.validation.annotation.*;
@@ -25,10 +26,14 @@ import net.jin.service.*;
 @RequestMapping(value="/users")
 public class MemberController {
 	
+	//인터페이스 호출을 위한 필드
 	private final MemberService memberService;
 	
-	//비밀번호 암호 처리기
+	//비밀번호 암호 처리를 위한 필드
 	private final PasswordEncoder passwordEncoder;
+	
+	//메시지소스 필드
+	private final MessageSource messageSource;
 	
 	//전체 목록 조회
 	@RequestMapping(value="", method = RequestMethod.GET)
