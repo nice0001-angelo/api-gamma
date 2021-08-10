@@ -134,6 +134,9 @@ public class MemberServiceImpl implements MemberService{
 	public Member setupAdmin(Member member) throws Exception{
 		Member memberEntity = new Member();
 		memberEntity.setUserId(member.getUserId());
+		memberEntity.setUserPw(member.getUserPw());
+		memberEntity.setUserName(member.getUserName());
+		memberEntity.setJob(member.getJob());
 		
 		
 		return memberRepository.save(member);
