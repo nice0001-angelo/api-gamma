@@ -133,6 +133,9 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public Member setupAdmin(Member member) throws Exception{
 		Member memberEntity = new Member();
+		memberEntity.setUserId(member.getUserId());
+		
+		
 		return memberRepository.save(member);
 	}
 	
