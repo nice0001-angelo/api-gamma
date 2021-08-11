@@ -22,6 +22,6 @@ public interface MemberRepository extends JpaRepository<Member, Long>{
 			+ "INNER JOIN CodeDetail cd ON cd.codeValue = m.job "
 			+ "INNER JOIN CodeGroup cg ON cg.groupCode = cd.groupCode "
 			+ "WHERE cg.groupCode = 'A01' ORDER BY m.regDate DESC")
-	public List<Object[]> listAllMember(); 
+	public List<Object[]> listAllMember();
 
 }
