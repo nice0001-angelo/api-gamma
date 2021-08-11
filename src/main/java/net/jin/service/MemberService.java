@@ -31,6 +31,6 @@ public interface MemberService {
 	public Long countAll() throws Exception;
 	
 	//Admin settig
-	public Member setupAdmin(Member member) throws Exception;
+	public void setupAdmin(Member member) throws Exception;
 	
 }
