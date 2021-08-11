@@ -132,14 +132,21 @@ public class MemberServiceImpl implements MemberService{
 	//member에 값이 없으면 admin 값 생성
 	@Override
 	public Member setupAdmin(Member member) throws Exception{
+		//Member 타입으로 memberEntity 변수에 객체주입 후 userId, userPw, userName, job 값을 세팅
 		Member memberEntity = new Member();
 		memberEntity.setUserId(member.getUserId());
 		memberEntity.setUserPw(member.getUserPw());
 		memberEntity.setUserName(member.getUserName());
 		memberEntity.setJob(member.getJob());
 		
+		//MemberAuth 타입으로 memberAuth 변수에 객체 주입후 auth에 "ROLE_ADMIN" 값 할당
+		MemberAuth memberAuth = new MemberAuth();
+		memberAuth.setAuth("ROLE_ADMIN");
 		
-		return memberRepository.save(member);
+		//memberEntity에 auth 값 할당
+		memberEntity.addAuth(memberAuth);
+		
+		return memberRepository.save(memberEntity);
 	}
 	
 }
