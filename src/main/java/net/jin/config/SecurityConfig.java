@@ -3,13 +3,18 @@
  */
 package net.jin.config;
 
+import java.util.*;
+
 import org.springframework.context.annotation.*;
 import org.springframework.security.config.annotation.authentication.builders.*;
 import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.config.annotation.web.configuration.*;
+import org.springframework.security.core.userdetails.*;
 import org.springframework.security.crypto.bcrypt.*;
 import org.springframework.security.crypto.password.*;
+import org.springframework.security.oauth2.client.userinfo.*;
 import org.springframework.security.web.authentication.*;
+import org.springframework.web.cors.*;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
@@ -63,5 +68,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		return new BCryptPasswordEncoder();
 	}
 	
+	//스프링 시큐리티의 UserDetailsService를 구현한 클래스를 빈으로 등록한다
+	@Bean
+	public UserDetailsService customUserDetailsService() {
+		return new CustomUserDetailsService();
+	}
 	
+	//Cors 사용자설정
+	@Bean
+	public CorsConfigurationSource corsConfigurationSource() {
+	    final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+	    
+	    CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin("*");
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("OPTIONS");
+        config.addAllowedMethod("HEAD");
+        config.addAllowedMethod("GET");
+        config.addAllowedMethod("PUT");
+        config.addAllowedMethod("POST");
+        config.addAllowedMethod("DELETE");
+        config.addAllowedMethod("PATCH");
+        config.setExposedHeaders(Arrays.asList("Authorization","Content-Disposition"));
+        
+	    source.registerCorsConfiguration("/**", config);
+	    
+	    return source;
+	}
 }
