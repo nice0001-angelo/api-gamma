@@ -1,7 +1,7 @@
 /**
  * 
  */
-package net.jin.common.security;
+package net.jin.common.security.domain;
 
 import java.util.*;
 import java.util.stream.*;
@@ -18,14 +18,18 @@ import net.jin.domain.*;
  */
 public class CustomUser extends User{
 	
+	//필드
 	private static final long serialVersionUID = 1L;
 	
+	//필드
 	private Member member;
 	
+	//생성자
 	public CustomUser(String username, String password, Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, authorities);
 	}
 	
+	//생성자
 	public CustomUser(Member member) {
 		super(member.getUserId(), member.getUserPw(), member.getAuthList().stream()
 				.map(auth->new SimpleGrantedAuthority(auth.getAuth())).collect(Collectors.toList()));
@@ -33,5 +37,17 @@ public class CustomUser extends User{
 		this.member = member;
 	}
 
-	public 
+	//생성자
+	public CusomUser(Member member, Collection<? extends GrantedAuthority> authorities) {
+		super(member.getUserId(), member.getUserPw(), authorities);
+		this.member = member;
+	}
+	
+	public Long getUserNo(){
+		return member.getUserNo();
+	}
+	
+	public String getUserId() {
+		return member.getUserId();
+	}
 }

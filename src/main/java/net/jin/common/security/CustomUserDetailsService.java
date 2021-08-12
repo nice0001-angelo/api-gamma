@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.security.core.userdetails.*;
 
 import lombok.extern.slf4j.*;
+import net.jin.common.security.domain.*;
 import net.jin.domain.*;
 import net.jin.repository.*;
 
