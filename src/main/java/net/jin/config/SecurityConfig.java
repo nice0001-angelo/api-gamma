@@ -9,6 +9,7 @@ import org.springframework.context.annotation.*;
 import org.springframework.security.config.annotation.authentication.builders.*;
 import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.config.annotation.web.configuration.*;
+import org.springframework.security.config.http.*;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.crypto.bcrypt.*;
 import org.springframework.security.crypto.password.*;
@@ -18,6 +19,9 @@ import org.springframework.web.cors.*;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
+import net.jin.common.security.*;
+import net.jin.common.security.jwt.filter.*;
+import net.jin.common.security.jwt.provider.*;
 
 /**
  * @author njh
