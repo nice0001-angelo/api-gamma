@@ -6,15 +6,20 @@ package net.jin.common.security.jwt.filter;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import org.springframework.security.core.*;
+import org.springframework.security.core.context.*;
 import org.springframework.web.filter.*;
 
 import io.jsonwebtoken.io.*;
+import lombok.*;
 import net.jin.common.security.jwt.constants.*;
+import net.jin.common.security.jwt.provider.*;
 
 /**
  * @author njh
  *
  */
+@RequiredArgsConstructor
 public class JwtRequestFilter extends OncePerRequestFilter{
 	
 	private final JwtTokenProvider jwtTokenProvider;
