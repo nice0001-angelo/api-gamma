@@ -38,7 +38,7 @@ public class CustomUser extends User{
 	}
 
 	//생성자
-	public CusomUser(Member member, Collection<? extends GrantedAuthority> authorities) {
+	public CustomUser(Member member, Collection<? extends GrantedAuthority> authorities) {
 		super(member.getUserId(), member.getUserPw(), authorities);
 		this.member = member;
 	}
