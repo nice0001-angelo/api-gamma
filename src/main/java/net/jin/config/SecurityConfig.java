@@ -97,6 +97,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         config.setExposedHeaders(Arrays.asList("Authorization","Content-Disposition"));
         
 	    source.registerCorsConfiguration("/**", config);
+	    System.out.println();
 	    
 	    return source;
 	}
