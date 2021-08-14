@@ -5,6 +5,7 @@ package net.jin.config;
 
 import java.util.*;
 
+import org.springframework.boot.autoconfigure.security.servlet.*;
 import org.springframework.context.annotation.*;
 import org.springframework.security.config.annotation.authentication.builders.*;
 import org.springframework.security.config.annotation.method.configuration.*;
@@ -57,6 +58,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.addFilterBefore(new JwtRequestFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class)
         .sessionManagement()
         .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		
+		//웹경로 보안 설정
+		httpSecurity.authorizeRequests()
+		.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+		.antMatchers("/").permitAll()
+		.antMatchers("/codes/**").access("permitAll")
+		.antMatchers("/users/**").access("permitAll")
+		.antMatchers("/codegroups/**").access("hasRole('ADMIN')")
+		.antMatchers("/codedetails/**").access("hasRole('ADMIN')")
+		.anyRequest().authenticated();
 	
 	}	
 	
