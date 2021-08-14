@@ -102,4 +102,8 @@ public class MemberController {
 	}
 	
 	
+	//회원정보를 가져온다
+	@RequestMapping(value = "/myinfo", method = RequestMethod.GET)
+	public ResponseEntity<Member> getMyInfo()
+	
 }
