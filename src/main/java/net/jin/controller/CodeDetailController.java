@@ -6,6 +6,7 @@ package net.jin.controller;
 import java.util.*;
 
 import org.springframework.http.*;
+import org.springframework.security.access.prepost.*;
 import org.springframework.validation.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,8 @@ import net.jin.service.*;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
+//관리자 권한을 갖은 사용자만 접근이 가능하다
+@PreAuthorize("hasRole('ADMIN')")
 @RequestMapping(value="/codedetails")
 public class CodeDetailController {
 
