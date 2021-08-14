@@ -7,6 +7,7 @@ import java.util.*;
 
 import org.springframework.context.*;
 import org.springframework.http.*;
+import org.springframework.security.access.prepost.*;
 import org.springframework.security.core.annotation.*;
 import org.springframework.security.crypto.password.*;
 import org.springframework.validation.annotation.*;
@@ -37,7 +38,10 @@ public class MemberController {
 	//메시지소스 필드
 	private final MessageSource messageSource;
 	
+	 
 	//전체 목록 조회
+	//관리자 권한을 가진 사용자만 접근이 가능하다
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value="", method = RequestMethod.GET)
 	public ResponseEntity<List<Member>> list() throws Exception{
 		
@@ -61,6 +65,8 @@ public class MemberController {
 	}
 	
 	//Member 정보 삭제
+	//관리자 권한을 가진 사용자만 사용 가능하다
+	@PreAuthorize("hasRohe('ADMIN')")
 	@RequestMapping(value = "/{userNo}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable("userNo") Long userNo) throws Exception{
 		memberService.delete(userNo);
@@ -69,6 +75,8 @@ public class MemberController {
 	}
 	
 	//Member 정보 수정: Front 에서 memberObject 로 보낸 항목에 userNo는 없으므로 별도로 PathVariable로 받아 와야함
+	//관리자와 회원 권한을 가진 사용자만 사용 가능하다
+	@PreAuthorize("hasRole('ADMIN','MEMBER')")
 	@RequestMapping(value = "/{userNo}", method = RequestMethod.PUT)
 	public ResponseEntity<Member> update(@PathVariable("userNo") Long userNo, @Validated @RequestBody Member member) throws Exception{
 		
@@ -105,6 +113,8 @@ public class MemberController {
 	
 	
 	//회원정보를 가져온다
+	//관리자와 회원 권한을 가진 사용자만 사용 가능하다
+	@PreAuthorize("hasRole('ADMIN','MEMBER')")
 	@RequestMapping(value = "/myinfo", method = RequestMethod.GET)
 	public ResponseEntity<Member> getMyInfo(@AuthenticationPrincipal CustomUser customUser) throws Exception{
 		Long userNo = customUser.getUserNo();
