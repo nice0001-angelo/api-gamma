@@ -8,6 +8,10 @@ $(document).ready(function(){
 			type: "GET",
 			url: "/users",
 			contentType: "application/json; charset=UTF-8",
+			//엑세스 토큰을 요청 헤더로 서버에 전달한다
+			header: {
+				"Authorization":"Bearer" + ACCESS_TOKEN
+			},
 			success: function(data){
 				
 				alert("member listing~~~success !!!")
@@ -96,6 +100,10 @@ $(document).ready(function(){
 			type: "DELETE",
 			url: "/users/"+$("#userNo").val(),
 			contentType: "application/json; charset=UTF-8",
+			//엑세스 토큰을 요청 헤더로 서버에 전달한다
+			header: {
+				"Authorization":"Bearer" + ACCESS_TOKEN
+			},
 			success: function(data){
 				console.log(data);
 				alert("data: "+JSON.stringify(data));
