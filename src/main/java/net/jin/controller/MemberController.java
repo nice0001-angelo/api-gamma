@@ -108,6 +108,12 @@ public class MemberController {
 	@RequestMapping(value = "/myinfo", method = RequestMethod.GET)
 	public ResponseEntity<Member> getMyInfo(@AuthenticationPrincipal CustomUser customUser) throws Exception{
 		Long userNo = customUser.getUserNo();
+		
+		Member member = memberService.read(userNo);
+		
+		member.setUserPw("");
+		
+		return new ResponseEntity<Member>(member, HttpStatus.OK);
 	}
 	
 }
