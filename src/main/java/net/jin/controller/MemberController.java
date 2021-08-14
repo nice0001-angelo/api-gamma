@@ -7,12 +7,14 @@ import java.util.*;
 
 import org.springframework.context.*;
 import org.springframework.http.*;
+import org.springframework.security.core.annotation.*;
 import org.springframework.security.crypto.password.*;
 import org.springframework.validation.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
+import net.jin.common.security.domain.*;
 import net.jin.domain.*;
 import net.jin.service.*;
 
@@ -104,6 +106,8 @@ public class MemberController {
 	
 	//회원정보를 가져온다
 	@RequestMapping(value = "/myinfo", method = RequestMethod.GET)
-	public ResponseEntity<Member> getMyInfo()
+	public ResponseEntity<Member> getMyInfo(@AuthenticationPrincipal CustomUser customUser) throws Exception{
+		Long userNo = customUser.getUserNo();
+	}
 	
 }
