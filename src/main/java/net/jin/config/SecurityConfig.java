@@ -7,6 +7,7 @@ import java.util.*;
 
 import org.springframework.context.annotation.*;
 import org.springframework.security.config.annotation.authentication.builders.*;
+import org.springframework.security.config.annotation.method.configuration.*;
 import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.config.annotation.web.configuration.*;
 import org.springframework.security.config.http.*;
@@ -31,6 +32,8 @@ import net.jin.common.security.jwt.provider.*;
 //인자있는 생성자 자동생성
 @RequiredArgsConstructor
 @EnableWebSecurity
+//시큐리티 애노테이션 활성활르 위한 옵션
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	//JWT 토큰을 제공하는 JwtTokenProvider 필드 선언
