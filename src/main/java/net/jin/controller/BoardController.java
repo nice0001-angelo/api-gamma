@@ -7,11 +7,13 @@ import java.util.*;
 
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
+import org.springframework.security.core.annotation.*;
 import org.springframework.validation.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
+import net.jin.common.security.domain.*;
 import net.jin.domain.*;
 import net.jin.service.*;
 
@@ -44,8 +46,14 @@ public class BoardController {
 	//등록
 	@PreAuthorize("hasRole('MEMBER')")
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<Board> insert(@Validated @RequestBody Board board) throws Exception{
-		return new ResponseEntity<Board>(boardService.insert(board), HttpStatus.OK);
+	public ResponseEntity<Board> insert(@Validated @RequestBody Board board, @AuthenticationPrincipal CustomUser customUser) throws Exception{
+		//customerUser로 부터 UserId를 가져다가 board 변수에 담고
+		board.setWriter(customUser.getUserId());
+		//등록하기 위해 boardService를 호출한다
+		boardService.insert(board);
+		
+		//리턴 결과는 insert한 내용을 읽어온다 
+		return new ResponseEntity<Board>(boardService.read(board.getBoardNo()), HttpStatus.OK);
 	}
 	
 	
