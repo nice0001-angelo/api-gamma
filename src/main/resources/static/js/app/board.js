@@ -42,6 +42,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//등록
 	$("#boardRegisterBtn").on("click", function() {
 		var boardObject = {
 			title : $("#boardTitle").val(),

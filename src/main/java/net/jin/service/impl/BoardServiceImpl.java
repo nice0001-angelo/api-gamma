@@ -38,7 +38,10 @@ public class BoardServiceImpl implements BoardService{
 	
 	
 	//등록
-	
+	@Override
+	public Board insert(Board board) throws Exception{
+		return boardRepository.save(board);
+	}
 	//삭제
 	
 	//수정

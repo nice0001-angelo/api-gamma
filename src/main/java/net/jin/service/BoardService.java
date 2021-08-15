@@ -18,4 +18,9 @@ public interface BoardService {
 
 	//상세 목록조회
 	public Board read(Long boardNo) throws Exception;
+	
+	//등록
+	public Board insert(Board board) throws Exception;
+	
+	
 }

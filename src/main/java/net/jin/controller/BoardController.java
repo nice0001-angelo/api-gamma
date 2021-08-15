@@ -7,6 +7,7 @@ import java.util.*;
 
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
+import org.springframework.validation.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
 import lombok.*;
@@ -41,6 +42,12 @@ public class BoardController {
 	
 	
 	//등록
+	@PreAuthorize("hasRole('MEMBER')")
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public ResponseEntity<Board> insert(@Validated @RequestBody Board board) throws Exception{
+		return new ResponseEntity<Board>(boardService.insert(board), HttpStatus.OK);
+	}
+	
 	
 	//삭제
 	
