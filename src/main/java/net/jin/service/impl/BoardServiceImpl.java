@@ -51,7 +51,12 @@ public class BoardServiceImpl implements BoardService{
 	//수정
 	@Override
 	public Board update(Board board) throws Exception{
-		return boardRepository.save(board);
+		//데이터베이서에서 이미 저장되어있는 게시판 글의 번호를 가져와서 세팅하고 boardEntity 변수에 담는다
+		Board boardEntity = boardRepository.getById(board.getBoardNo());
+		
+		boardEntity.setTitle(board.getTitle());
+		boardEntity.setContent(board.getContent());
+		return boardRepository.save(boardEntity);
 	}
 	
 }
