@@ -5,6 +5,9 @@ package net.jin.service.impl;
 
 import java.util.*;
 
+import org.graalvm.compiler.loop.InductionVariable.*;
+import org.springframework.data.domain.*;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.*;
 
 import lombok.*;
@@ -25,7 +28,7 @@ public class BoardServiceImpl implements BoardService{
 	//전체목록조회
 	@Override
 	public List<Board> list() throws Exception{
-		return boardRepository.findAll();
+		return boardRepository.findAll(Sort.by(Direction.DESC,"boardNo"));
 	}
 
 }
