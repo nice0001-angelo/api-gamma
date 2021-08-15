@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	
+	//전체목록조회
 	$("#boardListBtn").on("click", function() {
 		$.ajax({
 			type : "GET",
@@ -17,6 +19,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//상세목록조회
 	$("#boardReadBtn").on("click", function() {
 		$.ajax({
 			type : "GET",

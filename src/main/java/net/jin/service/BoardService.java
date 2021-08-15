@@ -16,4 +16,6 @@ public interface BoardService {
 	//전체 목록조회
 	public List<Board> list() throws Exception;
 
+	//상세 목록조회
+	public Board read(Long boardNo) throws Exception;
 }

@@ -30,4 +30,17 @@ public class BoardServiceImpl implements BoardService{
 		return boardRepository.findAll(Sort.by(Direction.DESC,"boardNo"));
 	}
 
+	//상세목록조회
+	@Override
+	public Board read(Long boardNo) throws Exception{
+		return boardRepository.getById(boardNo);
+	}
+	
+	
+	//등록
+	
+	//삭제
+	
+	//수정
+	
 }
