@@ -69,6 +69,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//삭제
 	$("#boardDeleteBtn").on("click", function() {
 		$.ajax({
 			type : "DELETE",
@@ -88,6 +89,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//수정
 	$("#boardModifyBtn").on("click", function() {
 		var boardNoVal = $("#boardNo").val();
 		

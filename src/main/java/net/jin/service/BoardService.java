@@ -24,4 +24,7 @@ public interface BoardService {
 	
 	//삭제
 	public void delete(Long boardNo) throws Exception;
+	
+	//수정
+	public Board update(Board board) throws Exception;
 }

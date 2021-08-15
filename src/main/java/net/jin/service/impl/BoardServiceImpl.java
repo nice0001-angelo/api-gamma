@@ -49,5 +49,9 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	//수정
+	@Override
+	public Board update(Board board) throws Exception{
+		return boardRepository.save(board);
+	}
 	
 }

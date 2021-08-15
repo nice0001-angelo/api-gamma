@@ -58,7 +58,7 @@ public class BoardController {
 	
 	
 	//삭제
-	@PreAuthorize("hasRole('MEMBER' and pricipal.username == #writer) or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('MEMBER' and principal.username == #writer) or hasRole('ADMIN')")
 	@RequestMapping(value = "/{boardNo}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Long boardNo, @RequestParam("writer") String writer) throws Exception{
 		boardService.delete(boardNo);
@@ -67,7 +67,12 @@ public class BoardController {
 	
 	
 	//수정
-	
+	@PreAuthorize("hasRole('MEMBER' and principal.username == #board.writer) or hasRole('ADMIN')")
+	@RequestMapping(value = "/{boardNo}", method = RequestMethod.PUT)
+	public ResponseEntity<Board> update(@PathVariable("boardNo") Long boardNo, @Validated @RequestBody Board board) throws Exception{
+		
+		return new ResponseEntity<Board>(boardService.update(board), HttpStatus.OK);
+	}
 	
 	
 
