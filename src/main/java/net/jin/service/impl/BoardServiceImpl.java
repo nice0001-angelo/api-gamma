@@ -43,6 +43,10 @@ public class BoardServiceImpl implements BoardService{
 		return boardRepository.save(board);
 	}
 	//삭제
+	@Override
+	public void delete(Long boardNo) throws Exception{
+		boardRepository.deleteById(boardNo);
+	}
 	
 	//수정
 	

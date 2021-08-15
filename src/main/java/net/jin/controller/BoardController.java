@@ -58,6 +58,12 @@ public class BoardController {
 	
 	
 	//삭제
+	@PreAuthorize("hasRole('MEMBER' and pricipal.username == #writer) or hasRole('ADMIN')")
+	@RequestMapping(value = "/{boardNo}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable Long boardNo, @RequestParam("writer") String writer) throws Exception{
+		boardService.delete(boardNo);
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+	}
 	
 	
 	//수정

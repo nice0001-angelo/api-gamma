@@ -22,5 +22,6 @@ public interface BoardService {
 	//등록
 	public Board insert(Board board) throws Exception;
 	
-	
+	//삭제
+	public void delete(Long boardNo) throws Exception;
 }
