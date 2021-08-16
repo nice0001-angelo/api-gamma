@@ -33,6 +33,7 @@ public class NoticeController {
 	}
 	
 	//상세목록조회
+	@RequestMapping(value = "/{noticeNo}")
 	
 	//등록
 	

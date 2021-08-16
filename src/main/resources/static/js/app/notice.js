@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	
+	//전체목록조회
 	$("#noticeListBtn").on("click", function() {
 		$.get("/notices", function(data) {
 			console.log(data);
@@ -7,6 +9,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//상세목록조회
 	$("#noticeReadBtn").on("click", function() {
 		$.ajax({
 			type : "GET",
@@ -28,6 +31,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//등록
 	$("#noticeRegisterBtn").on("click", function() {
 		var noticeObject = {
 			title : $("#noticeTitle").val(),
@@ -55,6 +59,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//삭제
 	$("#noticeDeleteBtn").on("click", function() {
 		$.ajax({
 			type : "DELETE",
@@ -74,6 +79,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//수정
 	$("#noticeModifyBtn").on("click", function() {
 		var noticeNoVal = $("#noticeNo").val();
 		
@@ -102,6 +108,7 @@ $(document).ready(function() {
 		});
 	});
 	
+	//리셋
 	$("#noticeResetBtn").on("click", function() {
 		$("#noticeNo").val("");
 		$("#noticeTitle").val("");
