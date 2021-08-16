@@ -17,6 +17,7 @@ public interface NoticeService {
 	public List<Notice> list() throws Exception;
 
 	//상세목록조회
+	public Notice read(Long noticeNo) throws Exception;
 	
 	//등록
 	

@@ -31,6 +31,10 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 	
 	//상세목록조회
+	@Override
+	public Notice read(Long noticeNo) throws Exception{
+		return noticeRepository.getById(noticeNo);
+	}
 	
 	//등록
 	

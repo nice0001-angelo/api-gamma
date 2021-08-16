@@ -33,7 +33,10 @@ public class NoticeController {
 	}
 	
 	//상세목록조회
-	@RequestMapping(value = "/{noticeNo}")
+	@RequestMapping(value = "/{noticeNo}", method = RequestMethod.GET)
+	public ResponseEntity<Notice> read(@PathVariable("noticeNo") Long noticeNo) throws Exception{
+		return new ResponseEntity<Notice>(noticeService.read(noticeNo), HttpStatus.OK);
+	}
 	
 	//등록
 	
