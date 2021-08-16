@@ -119,6 +119,7 @@ $(document).ready(function() {
 		});
 	});
 	
+	//입력값 리셋
 	$("#boardResetBtn").on("click", function() {
 		$("#boardNo").val("");
 		$("#boardTitle").val("");
