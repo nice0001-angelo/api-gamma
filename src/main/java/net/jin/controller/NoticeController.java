@@ -6,6 +6,7 @@ package net.jin.controller;
 import java.util.*;
 
 import org.springframework.http.*;
+import org.springframework.security.access.prepost.*;
 import org.springframework.validation.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +40,11 @@ public class NoticeController {
 	}
 	
 	//등록
+	@PreAuthorize("hasRole('ADMIN')")
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public ResponseEntity<Notice> insert(@Validated @RequestBody Notice notice) throws Exception{
+		return new ResponseEntity<Notice>(noticeService.insert(notice), HttpStatus.OK);
+	}
 	
 	//삭제
 	

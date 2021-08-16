@@ -37,6 +37,11 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 	
 	//등록
+	@Override
+	public Notice insert(Notice notice) throws Exception{
+		 noticeRepository.save(notice);
+		 return noticeRepository.getById(notice.getNoticeNo());
+	}
 	
 	//삭제
 	

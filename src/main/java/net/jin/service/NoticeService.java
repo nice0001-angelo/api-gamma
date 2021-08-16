@@ -20,6 +20,7 @@ public interface NoticeService {
 	public Notice read(Long noticeNo) throws Exception;
 	
 	//등록
+	public Notice insert(Notice notice) throws Exception;
 	
 	//삭제
 	
