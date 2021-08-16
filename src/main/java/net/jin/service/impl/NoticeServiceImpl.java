@@ -44,6 +44,10 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 	
 	//삭제
+	@Override
+	public void delete(Long noticeNo) throws Exception{
+		noticeRepository.deleteById(noticeNo);
+	}
 	
 	//수정
 }

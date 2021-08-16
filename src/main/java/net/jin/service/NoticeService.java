@@ -23,6 +23,7 @@ public interface NoticeService {
 	public Notice insert(Notice notice) throws Exception;
 	
 	//삭제
+	public void delete(Long noticeNo) throws Exception;
 	
 	//수정
 }

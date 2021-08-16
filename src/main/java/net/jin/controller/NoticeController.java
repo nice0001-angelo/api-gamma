@@ -47,6 +47,12 @@ public class NoticeController {
 	}
 	
 	//삭제
+	@PreAuthorize("hasRole('ADMIN')")
+	@RequestMapping(value = "/{noticeNo}", method = RequestMethod.DELETE)
+	public ResponseEntity<String> delete(@PathVariable("noticeNo") Long noticeNo) throws Exception{
+		noticeService.delete(Long noticeNo);
+		return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
+	}
 	
 	//수정
 
