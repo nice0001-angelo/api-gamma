@@ -55,5 +55,10 @@ public class NoticeController {
 	}
 	
 	//수정
-
+	@PreAuthorize("hasRole('ADMIN')")
+	@RequestMapping(value = "/{noticeNo}", method = RequestMethod.PUT)
+	public ResponseEntity<Notice> update(@PathVariable("noticeNo") Long noticeNo, @Validated @RequestBody Notice notice) throws Exception{
+		return new ResponseEntity<Notice>(noticeService.update(notice), HttpStatus.OK);
+	}
+	
 }

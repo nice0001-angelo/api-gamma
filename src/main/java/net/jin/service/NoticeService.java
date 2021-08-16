@@ -26,4 +26,5 @@ public interface NoticeService {
 	public void delete(Long noticeNo) throws Exception;
 	
 	//수정
+	public Notice update(Notice notice) throws Exception;
 }

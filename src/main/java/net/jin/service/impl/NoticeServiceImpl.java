@@ -50,4 +50,17 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 	
 	//수정
+	@Override
+	public Notice update(Notice notice) throws Exception{
+		Notice noticeEntity = noticeRepository.getById(notice.getNoticeNo());
+		
+		noticeEntity.setTitle(notice.getTitle());
+		noticeEntity.setContent(notice.getContent());
+		
+		noticeRepository.save(noticeEntity);
+		Notice afterSavedEntity = noticeRepository.getById(notice.getNoticeNo());
+		
+		return afterSavedEntity;
+
+	}
 }
