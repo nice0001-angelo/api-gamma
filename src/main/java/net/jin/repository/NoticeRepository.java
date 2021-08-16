@@ -12,5 +12,5 @@ import net.jin.domain.*;
  *
  */
 public interface NoticeRepository extends JpaRepository<Notice, Long>{
-
+	
 }
