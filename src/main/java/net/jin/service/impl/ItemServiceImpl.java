@@ -25,11 +25,16 @@ public class ItemServiceImpl implements ItemService{
 	ItemRepository itemRepository;
 	
 	//전체목록조회
+	@Override
 	public List<Item> list() throws Exception{
 		return itemRepository.findAll(Sort.by(Direction.DESC,"itemId"));
 	}
 	
 	//상세목록조회
+	@Override
+	public Item read(Long itemId) throws Exception{
+		return itemRepository.getById(itemId);
+	}
 	
 	//등록
 	

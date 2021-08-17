@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	
+	//전체목록조회
 	$("#itemListBtn").on("click", function() {
 		$.get("/items", function(data) {
 			console.log(data);
@@ -7,6 +9,8 @@ $(document).ready(function() {
 		});
 	});
 
+	
+	//상세목록조회
 	$("#itemReadBtn").on("click", function() {
 		$.ajax({
 			type : "GET",
@@ -43,6 +47,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//등록
 	$("#itemRegisterBtn").on("click", function() {
 		console.log("register");
 		
@@ -84,6 +89,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//삭제
 	$("#itemDeleteBtn").on("click", function() {
 		$.ajax({
 			type : "DELETE",
@@ -103,6 +109,7 @@ $(document).ready(function() {
 		});
 	});
 
+	//수정
 	$("#itemModifyBtn").on("click", function() {
 		console.log("modify");
 		
@@ -147,6 +154,7 @@ $(document).ready(function() {
 		});
 	});
 	
+	//리셋
 	$("#itemResetBtn").on("click", function() {
 		$("#itemId").val("");
 		$("#itemName").val("");
@@ -157,6 +165,7 @@ $(document).ready(function() {
 		$("#preview2").empty();
 	});
 	
+	//아이템 다운로드
 	$("#itemDownloadBtn").on("click", function() {
 		var req = new XMLHttpRequest();
 		

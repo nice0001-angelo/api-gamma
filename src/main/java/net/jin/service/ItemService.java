@@ -17,6 +17,7 @@ public interface ItemService {
 	public List<Item> list() throws Exception;
 	
 	//상세목록조회
+	public Item read(Long itemId) throws Exception;
 	
 	//등록
 	

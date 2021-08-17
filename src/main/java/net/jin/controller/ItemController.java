@@ -30,13 +30,17 @@ public class ItemController {
 	private final ShopProperties shopProperties;
 	
 	//전체목록조회
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<List<Item>> list() throws Exception{
 		return new ResponseEntity<List<Item>>(itemService.list(), HttpStatus.OK);
 	}
 	
 	
 	//상세목록조회
-	
+	@RequestMapping(value = "{itemId}", method = RequestMethod.GET)
+	public ResponseEntity<Item> read(@PathVariable("itemId") Long itemId) throws Exception{
+		return new ResponseEntity<Item>(itemService.read(itemId), HttpStatus.OK);
+	}
 	//등록
 	
 	//삭제
