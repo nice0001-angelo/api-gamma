@@ -71,6 +71,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/boards/**").access("request.method == 'GET' ? permitAll : hasRole('ADMIN', 'MEMBER')")
 		//공지사항 웹경로 보안 권한 지정
 		.antMatchers("/notices/**").access("request.method == 'GET' ? permitAll : hasRole('ADMIN')")
+		//상품관리 웹경로 보안 권한 지정
+		.antMatchers("/items/**").access("request.method == 'GET' ? permitAll : hasRole('ADMIN')")
 		.anyRequest().authenticated();
 	
 	}	
