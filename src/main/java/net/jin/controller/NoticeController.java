@@ -30,6 +30,7 @@ public class NoticeController {
 	//전체목록조회
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<List<Notice>> list() throws Exception{
+		System.out.println("NoticeController :");
 		return new ResponseEntity<List<Notice>>(noticeService.list(),HttpStatus.OK);
 	}
 	

@@ -27,6 +27,7 @@ public class NoticeServiceImpl implements NoticeService{
 	//전체목록조회
 	@Override
 	public List<Notice> list() throws Exception{
+		System.out.println("NoticeServiceImpl :");
 		return noticeRepository.findAll(Sort.by(Direction.DESC,"noticeNo"));
 	}
 	

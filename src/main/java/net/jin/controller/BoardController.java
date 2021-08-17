@@ -32,7 +32,6 @@ public class BoardController {
 	//전체목록 조회
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<List<Board>> list() throws Exception{
-		
 		return new ResponseEntity<List<Board>>(boardService.list(), HttpStatus.OK);
 	}
 	
