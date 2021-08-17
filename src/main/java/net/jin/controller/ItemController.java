@@ -3,10 +3,52 @@
  */
 package net.jin.controller;
 
+import java.util.*;
+
+import org.springframework.http.*;
+import org.springframework.web.bind.annotation.*;
+
+import lombok.*;
+import lombok.extern.slf4j.*;
+import net.jin.domain.*;
+import net.jin.prop.*;
+import net.jin.service.*;
+
 /**
  * @author njh
  *
  */
+@Slf4j
+@RequiredArgsConstructor
+@RestController
+@RequestMapping(value = "/items")
 public class ItemController {
+	
+	
+	private final ItemService itemService;
+	
+	private final ShopProperties shopProperties;
+	
+	//전체목록조회
+	public ResponseEntity<List<Item>> list() throws Exception{
+		return new ResponseEntity<List<Item>>(itemService.list(), HttpStatus.OK);
+	}
+	
+	
+	//상세목록조회
+	
+	//등록
+	
+	//삭제
+	
+	//수정
+	
+	//바이너리 데이터 파일 저장
+	
+	//원본 이미지 표시
+	
+	//미리보기 이미지 표시
+	
+	//이미지 다운로드
 
 }
