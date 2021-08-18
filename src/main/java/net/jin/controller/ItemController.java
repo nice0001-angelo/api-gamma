@@ -5,6 +5,7 @@ package net.jin.controller;
 
 import java.util.*;
 
+import org.apache.tomcat.util.http.fileupload.*;
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
 import org.springframework.web.bind.annotation.*;
@@ -72,6 +73,16 @@ public class ItemController {
 		//item object에 file 세팅
 		item.setPicture(originalImageFile);
 		item.setPreview(previewImageFile);
+		
+		//item object에 세팅된 파일을 Multipartfile 타입의 변수로 세팅
+		MultipartFile pictureFile = item.getPicture();
+		MultipartFile previewFile = item.getPreview();
+		
+		//pictureFile, previewFile 에서 이름, byte수 가져오기 uploadFile method 정의 필요
+		String createdPictureFilename = uploadFile(pictureFile.getOriginalFilename(),pictureFile.getBytes());
+		String createdPreviewFilename = uploadFile(previewFile.getOriginalFilename(),previewFile.getBytes());
+		
+		
 	}
 	
 	//삭제
