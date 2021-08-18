@@ -20,6 +20,7 @@ public interface ItemService {
 	public Item read(Long itemId) throws Exception;
 	
 	//등록
+	public Item insert(Item item) throws Exception;
 	
 	//삭제
 	

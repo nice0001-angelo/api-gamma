@@ -37,6 +37,10 @@ public class ItemServiceImpl implements ItemService{
 	}
 	
 	//등록
+	@Override
+	public Item insert(Item item) throws Exception{
+		return itemRepository.save(item);
+	}
 	
 	//삭제
 	

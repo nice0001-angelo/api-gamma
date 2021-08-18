@@ -82,7 +82,16 @@ public class ItemController {
 		String createdPictureFilename = uploadFile(pictureFile.getOriginalFilename(),pictureFile.getBytes());
 		String createdPreviewFilename = uploadFile(previewFile.getOriginalFilename(),previewFile.getBytes());
 		
+		//생성된 picture, preview 파일네임을 세팅
+		item.setPictureUrl(createdPictureFilename);
+		item.setPreviewUrl(createdPreviewFilename);
 		
+		itemService.insert(item);
+		
+//		Item createdItem = new Item();
+//		createdItem.setItemId(item.getItemId());
+		
+		return new ResponseEntity<Item>(item, HttpStatus.OK);
 	}
 	
 	//삭제
