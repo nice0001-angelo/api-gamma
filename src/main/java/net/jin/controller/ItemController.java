@@ -53,6 +53,7 @@ public class ItemController {
 			@RequestPart("file2") MultipartFile previewImageFile) throws Exception{
 		
 		//Item타입의 item 변수에 객체주입하면서 초기화
+		//Convert "JSON" to "Java Object" 할때 사용하는것이 아래타입의 문장임.(String to Object)
 		Item item = new ObjectMapper().readValue(itemString, Item.class);
 		
 		String itemName = item.getItemName();
