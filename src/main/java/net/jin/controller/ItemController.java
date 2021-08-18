@@ -8,6 +8,7 @@ import java.util.*;
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.*;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
@@ -45,7 +46,11 @@ public class ItemController {
 	//등록
 	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<Item> insert(@RequestPart)
+	public ResponseEntity<Item> insert(@RequestPart("item") String itemString, 
+			@RequestPart("file") MultipartFile originalImageFile, 
+			@RequestPart("file2") MultipartFile previewImageFile) throws Exception{
+		
+	}
 	
 	//삭제
 	
