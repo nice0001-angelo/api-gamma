@@ -10,6 +10,8 @@ import org.springframework.security.access.prepost.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.*;
 
+import com.fasterxml.jackson.databind.*;
+
 import lombok.*;
 import lombok.extern.slf4j.*;
 import net.jin.domain.*;
@@ -49,6 +51,12 @@ public class ItemController {
 	public ResponseEntity<Item> insert(@RequestPart("item") String itemString, 
 			@RequestPart("file") MultipartFile originalImageFile, 
 			@RequestPart("file2") MultipartFile previewImageFile) throws Exception{
+		
+		//Item타입의 item 변수에 객체주입하면서 초기화
+		Item item = new ObjectMapper().readValue(itemString, Item.class);
+		
+		String itemName = item.getItemName();
+		String description = item.getDescription();
 		
 	}
 	
