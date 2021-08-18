@@ -3,11 +3,13 @@
  */
 package net.jin.controller;
 
+import java.io.*;
 import java.util.*;
 
 import org.apache.tomcat.util.http.fileupload.*;
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
+import org.springframework.util.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.*;
 
@@ -91,7 +93,7 @@ public class ItemController {
 //		Item createdItem = new Item();
 //		createdItem.setItemId(item.getItemId());
 		
-		return new ResponseEntity<Item>(item, HttpStatus.OK);
+		return new ResponseEntity<Item>(item , HttpStatus.OK);
 	}
 	
 	//삭제
@@ -99,6 +101,20 @@ public class ItemController {
 	//수정
 	
 	//바이너리 데이터 파일 저장
+	public String uploadFile(String originalFilename, byte[] fileData) throws Exception{
+		
+		//UUID 클래스를 이용해서 유일한 식별자를 생성하기 위해 randomUUID() method를 통해서 유일한 식별자를 생성한다. 업로드 파일 관리를 위해 자주 쓰임
+		UUID uid = UUID.randomUUID();
+		
+		String createdFileName = uid.toString() + "_" + originalFilename;
+		
+		File target = new File(shopProperties.getUploadPath(), createdFileName);
+		
+		FileCopyUtils.copy(fileData, target);
+		
+		return createdFileName;
+		
+	}
 	
 	//원본 이미지 표시
 	
