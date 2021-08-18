@@ -6,6 +6,7 @@ package net.jin.controller;
 import java.util.*;
 
 import org.springframework.http.*;
+import org.springframework.security.access.prepost.*;
 import org.springframework.web.bind.annotation.*;
 
 import lombok.*;
@@ -42,6 +43,9 @@ public class ItemController {
 		return new ResponseEntity<Item>(itemService.read(itemId), HttpStatus.OK);
 	}
 	//등록
+	@PreAuthorize("hasRole('ADMIN')")
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public ResponseEntity<Item> insert(@RequestPart)
 	
 	//삭제
 	
