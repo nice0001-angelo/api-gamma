@@ -51,6 +51,10 @@ public class ItemServiceImpl implements ItemService{
 	
 	
 	//수정
+	@Override
+	public Item update(Item item) throws Exception{
+		return;
+	}
 	
 	
 	//바이너리 데이터 파일 저장

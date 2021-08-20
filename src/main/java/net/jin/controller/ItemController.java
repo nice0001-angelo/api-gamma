@@ -105,6 +105,17 @@ public class ItemController {
 	}
 	
 	//수정
+	@PreAuthorize("hasRole('ADMIN')")
+	@RequestMapping(value = "{itemId}", method = RequestMethod.PUT)
+	public ResponseEntity<Item> update(@PathVariable("itemId") Long itemId, 
+			@RequestPart("item") String itemString, @RequestPart(name = "file", required = false) MultipartFile originalImageFile,
+			@RequestPart(name = "file2", required = false) MultipartFile previewImageFile) throws Exception{
+		
+		itemService.update(item);
+		
+		return new ResponseEntity<Item>(HttpStatus.OK);
+	}
+	
 	
 	//바이너리 데이터 파일 저장
 	public String uploadFile(String originalFilename, byte[] fileData) throws Exception{
