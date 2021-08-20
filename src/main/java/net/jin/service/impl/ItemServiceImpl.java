@@ -7,6 +7,7 @@ import java.util.*;
 
 import org.springframework.data.domain.*;
 import org.springframework.data.domain.Sort.*;
+import org.springframework.security.access.prepost.*;
 import org.springframework.stereotype.*;
 
 import lombok.extern.slf4j.*;
@@ -43,6 +44,7 @@ public class ItemServiceImpl implements ItemService{
 	}
 	
 	//삭제
+	@PreAuthorize("hasRole('ADMIN')")
 	@Override
 	public void delete(Long itemId) throws Exception{
 		itemRepository.deleteById(itemId);
