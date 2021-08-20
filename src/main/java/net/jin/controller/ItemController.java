@@ -97,6 +97,11 @@ public class ItemController {
 	}
 	
 	//삭제
+	@RequestMapping(value = "/{itemId}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable("itemId") Long itemId) throws Exception{
+		itemService.delete(itemId);
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+	}
 	
 	//수정
 	

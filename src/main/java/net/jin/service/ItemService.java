@@ -23,6 +23,7 @@ public interface ItemService {
 	public Item insert(Item item) throws Exception;
 	
 	//삭제
+	public void delete(Long itemId) throws Exception;
 	
 	//수정
 	

@@ -43,6 +43,11 @@ public class ItemServiceImpl implements ItemService{
 	}
 	
 	//삭제
+	@Override
+	public void delete(Long itemId) throws Exception{
+		itemRepository.deleteById(itemId);
+	}
+	
 	
 	//수정
 	
