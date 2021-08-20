@@ -44,7 +44,6 @@ public class ItemServiceImpl implements ItemService{
 	}
 	
 	//삭제
-	@PreAuthorize("hasRole('ADMIN')")
 	@Override
 	public void delete(Long itemId) throws Exception{
 		itemRepository.deleteById(itemId);
@@ -52,6 +51,7 @@ public class ItemServiceImpl implements ItemService{
 	
 	
 	//수정
+	
 	
 	//바이너리 데이터 파일 저장
 	

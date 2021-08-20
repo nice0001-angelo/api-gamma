@@ -97,6 +97,7 @@ public class ItemController {
 	}
 	
 	//삭제
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/{itemId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable("itemId") Long itemId) throws Exception{
 		itemService.delete(itemId);
