@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.*;
 
 import com.fasterxml.jackson.databind.*;
+import com.sun.mail.imap.protocol.Item;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
@@ -110,6 +111,8 @@ public class ItemController {
 	public ResponseEntity<Item> update(@PathVariable("itemId") Long itemId, 
 			@RequestPart("item") String itemString, @RequestPart(name = "file", required = false) MultipartFile originalImageFile,
 			@RequestPart(name = "file2", required = false) MultipartFile previewImageFile) throws Exception{
+		
+		Item item =  new ObjectMapper().readValue(itemString, Item.class);
 		
 		itemService.update(item);
 		

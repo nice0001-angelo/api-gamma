@@ -26,6 +26,7 @@ public interface ItemService {
 	public void delete(Long itemId) throws Exception;
 	
 	//수정
+	public Item update(Item item) throws Exception;
 	
 	//바이너리 데이터 파일 저장
 	
