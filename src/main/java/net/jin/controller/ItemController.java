@@ -6,7 +6,6 @@ package net.jin.controller;
 import java.io.*;
 import java.util.*;
 
-import org.apache.tomcat.util.http.fileupload.*;
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
 import org.springframework.util.*;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.*;
 
 import com.fasterxml.jackson.databind.*;
-import com.sun.mail.imap.protocol.Item;
+
 
 import lombok.*;
 import lombok.extern.slf4j.*;
@@ -112,7 +111,11 @@ public class ItemController {
 			@RequestPart("item") String itemString, @RequestPart(name = "file", required = false) MultipartFile originalImageFile,
 			@RequestPart(name = "file2", required = false) MultipartFile previewImageFile) throws Exception{
 		
+		//RequestPart를 이용해서 String 타입으로 가져왔기 때문에 Item 타입으로 변환 하는 것이 필요(아래)
 		Item item =  new ObjectMapper().readValue(itemString, Item.class);
+
+		item.setPicture(originalImageFile);
+		item.setPreview(previewImageFile);
 		
 		itemService.update(item);
 		
