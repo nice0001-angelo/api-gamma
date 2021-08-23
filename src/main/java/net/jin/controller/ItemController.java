@@ -114,12 +114,20 @@ public class ItemController {
 		//RequestPart를 이용해서 String 타입으로 가져왔기 때문에 Item 타입으로 변환 하는 것이 필요(아래)
 		Item item =  new ObjectMapper().readValue(itemString, Item.class);
 
+
 		item.setPicture(originalImageFile);
 		item.setPreview(previewImageFile);
 		
+		if(originalImageFile != null || originalImageFile.getSize()> 0 ) {
+			String createdFilename = uploadFile(originalImageFile.getOriginalFilename(), originalImageFile.getBytes());
+			item.setPictureUrl(createdFilename);
+		}
 		
-		MultipartFile pictureFile = item.getPicture();
-		if(pictureFile != null || pictureFile.getSize()> 0 )
+		if(previewImageFile != null || previewImageFile.getSize()>0) {
+			String createdFilename = uploadFile(previewImageFile.getOriginalFilename(), previewImageFile.getBytes());
+			item.setPreviewUrl(createdFilename);
+		}
+			
 		
 		itemService.update(item);
 		
