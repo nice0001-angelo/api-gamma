@@ -14,7 +14,6 @@ import org.springframework.web.multipart.*;
 
 import com.fasterxml.jackson.databind.*;
 
-
 import lombok.*;
 import lombok.extern.slf4j.*;
 import net.jin.domain.*;
@@ -161,6 +160,13 @@ public class ItemController {
 	
 	//미리보기 이미지 표시
 	
+	//이미지 형식 확인
+	
 	//이미지 다운로드
+	@PreAuthorize("hasRole('ADMIN')")
+	@RequestMapping(value = "/download/{itemId}", method = RequestMethod.GET)
+	public ResponseEntity<byte[]> downloadFile(@PathVariable("itemId") Long itemId) throws Exception{
+		
+	}
 
 }

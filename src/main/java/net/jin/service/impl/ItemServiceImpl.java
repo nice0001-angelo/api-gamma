@@ -66,8 +66,6 @@ public class ItemServiceImpl implements ItemService{
 		itemRepository.save(itemEntity);
 		
 		return itemEntity;
-		
-		
 	}
 	
 	
