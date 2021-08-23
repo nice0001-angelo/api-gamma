@@ -127,6 +127,7 @@ public class ItemController {
 			item.setPictureUrl(oldItem.getPictureUrl());
 		}
 		
+		//previewImageFile이 null이 아니고 사이즈도 0이상이면 새로운 값을 세팅하고 새로운게 없으면 과거의 값을 세팅한다
 		if(previewImageFile != null || previewImageFile.getSize()>0) {
 			String createdFilename = uploadFile(previewImageFile.getOriginalFilename(), previewImageFile.getBytes());
 			item.setPreviewUrl(createdFilename);
