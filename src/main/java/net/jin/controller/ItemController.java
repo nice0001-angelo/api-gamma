@@ -118,14 +118,21 @@ public class ItemController {
 		item.setPicture(originalImageFile);
 		item.setPreview(previewImageFile);
 		
+		//originalImageFile이 null이 아니고 사이즈도 0이상이면 새로운 값을 세팅하고 새로운게 없으면 과거의 값을 세팅한다
 		if(originalImageFile != null || originalImageFile.getSize()> 0 ) {
 			String createdFilename = uploadFile(originalImageFile.getOriginalFilename(), originalImageFile.getBytes());
 			item.setPictureUrl(createdFilename);
+		}else {
+			Item oldItem = itemService.read(itemId);
+			item.setPictureUrl(oldItem.getPictureUrl());
 		}
 		
 		if(previewImageFile != null || previewImageFile.getSize()>0) {
 			String createdFilename = uploadFile(previewImageFile.getOriginalFilename(), previewImageFile.getBytes());
 			item.setPreviewUrl(createdFilename);
+		}else {
+			Item oldItem = itemService.read(itemId);
+			item.setPreviewUrl(oldItem.getPreviewUrl());
 		}
 			
 		
