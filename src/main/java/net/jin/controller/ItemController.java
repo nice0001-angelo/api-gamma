@@ -117,6 +117,10 @@ public class ItemController {
 		item.setPicture(originalImageFile);
 		item.setPreview(previewImageFile);
 		
+		
+		MultipartFile pictureFile = item.getPicture();
+		if(pictureFile != null || pictureFile.getSize()> 0 )
+		
 		itemService.update(item);
 		
 		return new ResponseEntity<Item>(HttpStatus.OK);
