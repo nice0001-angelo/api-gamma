@@ -53,8 +53,21 @@ public class ItemServiceImpl implements ItemService{
 	//수정
 	@Override
 	public Item update(Item item) throws Exception{
-		System.out.println();
-		return;
+		Item itemEntity = itemRepository.getById(item.getItemId());
+		
+		itemEntity.setItemName(item.getItemName());
+		itemEntity.setDescription(item.getDescription());
+		itemEntity.setPicture(item.getPicture());
+		itemEntity.setPreview(item.getPreview());
+		itemEntity.setPictureUrl(item.getPictureUrl());
+		itemEntity.setPreviewUrl(item.getPictureUrl());
+		itemEntity.setPrice(item.getPrice());
+		
+		itemRepository.save(itemEntity);
+		
+		return itemEntity;
+		
+		
 	}
 	
 	

@@ -136,10 +136,8 @@ public class ItemController {
 			item.setPreviewUrl(oldItem.getPreviewUrl());
 		}
 			
-		
-		itemService.update(item);
-		
-		return new ResponseEntity<Item>(HttpStatus.OK);
+	
+		return new ResponseEntity<Item>(itemService.update(item),HttpStatus.OK);
 	}
 	
 	
