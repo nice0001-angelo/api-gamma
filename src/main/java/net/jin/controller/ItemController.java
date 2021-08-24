@@ -166,6 +166,10 @@ public class ItemController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/download/{itemId}", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> downloadFile(@PathVariable("itemId") Long itemId) throws Exception{
+		InputStream in = null;
+		ResponseEntity<byte[]> entity= null;
+		
+		String fullName = itemService.getPicture(itemId);
 		
 	}
 
