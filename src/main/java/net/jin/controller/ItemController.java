@@ -171,6 +171,14 @@ public class ItemController {
 		
 		String fullName = itemService.getPicture(itemId);
 		
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			
+		}
+		
 	}
 
 }
