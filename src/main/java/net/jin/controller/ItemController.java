@@ -172,7 +172,14 @@ public class ItemController {
 		String fullName = itemService.getPicture(itemId);
 		
 		try {
+			HttpHeaders httpHeaders = new HttpHeaders();
 			
+			in = new FileInputStream(shopProperties.getUploadPath()+File.separator+fullName);
+			
+			String fileName = fullName.substring(fullName.indexOf("_")+1);
+			
+			String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
+			MediaType mType = getMediaType(formatName);
 		} catch (Exception e) {
 			// TODO: handle exception
 		} finally {
