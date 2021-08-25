@@ -6,6 +6,7 @@ package net.jin.controller;
 import java.io.*;
 import java.util.*;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
 import org.springframework.util.*;
@@ -13,12 +14,15 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.*;
 
 import com.fasterxml.jackson.databind.*;
+import com.sun.net.httpserver.*;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
 import net.jin.domain.*;
 import net.jin.prop.*;
 import net.jin.service.*;
+import sun.nio.ch.*;
+import sun.security.util.*;
 
 /**
  * @author njh
@@ -178,14 +182,19 @@ public class ItemController {
 			
 			String fileName = fullName.substring(fullName.indexOf("_")+1);
 			
-			String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
-			MediaType mType = getMediaType(formatName);
+			httpHeaders.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+			
+			httpHeaders.add("Content-Disposition", "attachment: filename=\"" + new String(fileName.getBytes("UTF-8"),"ISO-8859-1")+"\"");
+			
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), httpHeaders, HttpStatus.CREATED);
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
+			entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
 		} finally {
-			
+			in.close();
 		}
-		
+		return entity;
 	}
 
 }
