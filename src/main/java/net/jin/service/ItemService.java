@@ -31,6 +31,7 @@ public interface ItemService {
 	//바이너리 데이터 파일 저장
 	
 	//원본 이미지 표시
+	public String getPicture(Long itemId) throws Exception;
 	
 	//미리보기 이미지 표시
 	
