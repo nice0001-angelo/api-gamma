@@ -72,9 +72,17 @@ public class ItemServiceImpl implements ItemService{
 	//바이너리 데이터 파일 저장
 	
 	//원본 이미지 표시
+	@Override
+	public String getPicture(Long itemId) throws Exception{
+		Item item = itemRepository.getById(itemId);
+		return item.getPictureUrl();
+	}
 	
 	//미리보기 이미지 표시
-	
+	@Override
+	public String getPreview(Long itemId) throws Exception{
+		Item item = itemRepository.getById(itemId);
+		return item.getPictureUrl();	
 	//이미지 다운로드
 
 }
