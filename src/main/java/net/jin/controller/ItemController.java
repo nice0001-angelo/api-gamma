@@ -180,12 +180,19 @@ public class ItemController {
 			in = new FileInputStream(shopProperties.getUploadPath()+File.separator+fileName);
 			
 			if(mType != null) {
-				
+				httpHeaders.setContentType(mType);
 			}
+			
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), httpHeaders, HttpStatus.CREATED);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
+			entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+		}finally {
+			in.close();
 		}
+		return entity;
 	}
 	
 	//이미지 형식 확인
