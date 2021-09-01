@@ -82,10 +82,8 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public String getPreview(Long itemId) throws Exception{
 		Item item = itemRepository.getById(itemId);
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		return item.getPictureUrl();	
+
+		return item.getPreviewUrl();	
 		
 	//이미지 다운로드
 

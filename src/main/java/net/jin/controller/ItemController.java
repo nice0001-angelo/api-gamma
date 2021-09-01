@@ -163,6 +163,10 @@ public class ItemController {
 	//원본 이미지 표시
 	
 	//미리보기 이미지 표시
+	@RequestMapping(value = "/preview", method = RequestMethod.GET)
+	public ResponseEntity<byte[]> previewFile(@RequestParam("itemId") Long itemId) throws Exception{
+		InputStream in = null;
+	}
 	
 	//이미지 형식 확인
 	
