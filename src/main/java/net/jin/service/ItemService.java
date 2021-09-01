@@ -34,6 +34,7 @@ public interface ItemService {
 	public String getPicture(Long itemId) throws Exception;
 	
 	//미리보기 이미지 표시
+	public String getPreview(Long itemId) throws Exception;
 	
 	//이미지 다운로드
 

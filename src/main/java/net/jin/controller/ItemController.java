@@ -166,6 +166,11 @@ public class ItemController {
 	@RequestMapping(value = "/preview", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> previewFile(@RequestParam("itemId") Long itemId) throws Exception{
 		InputStream in = null;
+		ResponseEntity<byte[]> entity = null;
+		
+		String fileName = itemService.getPreview(itemId);
+		
+		
 	}
 	
 	//이미지 형식 확인
