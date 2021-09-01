@@ -170,7 +170,22 @@ public class ItemController {
 		
 		String fileName = itemService.getPreview(itemId);
 		
-		
+		try {
+			String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
+			
+			MediaType mType = getMediaType(formatName);
+			
+			HttpHeaders httpHeaders = new HttpHeaders();
+			
+			in = new FileInputStream(shopProperties.getUploadPath()+File.separator+fileName);
+			
+			if(mType != null) {
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 	
 	//이미지 형식 확인
