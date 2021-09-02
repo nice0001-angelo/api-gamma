@@ -196,6 +196,9 @@ public class ItemController {
 	}
 	
 	//이미지 형식 확인
+	private MediaType getMediaType(String formatName) {
+		
+	}
 	
 	//이미지 다운로드
 	@PreAuthorize("hasRole('ADMIN')")
