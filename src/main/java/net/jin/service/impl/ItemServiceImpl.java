@@ -84,7 +84,8 @@ public class ItemServiceImpl implements ItemService{
 		Item item = itemRepository.getById(itemId);
 
 		return item.getPreviewUrl();	
-		
+	}
+	
 	//이미지 다운로드
 
 }
