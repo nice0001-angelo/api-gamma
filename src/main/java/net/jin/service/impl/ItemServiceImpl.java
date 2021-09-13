@@ -69,7 +69,6 @@ public class ItemServiceImpl implements ItemService{
 	}
 	
 	
-	//바이너리 데이터 파일 저장
 	
 	//원본 이미지 표시
 	@Override
@@ -89,6 +88,5 @@ public class ItemServiceImpl implements ItemService{
 		return item.getPreviewUrl();	
 	}
 	
-	//이미지 다운로드
 
 }
