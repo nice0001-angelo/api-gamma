@@ -83,8 +83,6 @@ public class ItemServiceImpl implements ItemService{
 		Item item = itemRepository.getById(itemId);
 		System.out.println();
 		System.out.println();
-		System.out.println();
-		System.out.println();
 
 		return item.getPreviewUrl();	
 	}
