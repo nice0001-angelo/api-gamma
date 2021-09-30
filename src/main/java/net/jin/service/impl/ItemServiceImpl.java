@@ -81,7 +81,7 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public String getPreview(Long itemId) throws Exception{
 		Item item = itemRepository.getById(itemId);
-
+	
 		
 		return item.getPreviewUrl();	
 
