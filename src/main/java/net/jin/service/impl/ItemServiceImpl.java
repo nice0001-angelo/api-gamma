@@ -42,7 +42,7 @@ public class ItemServiceImpl implements ItemService{
 	public Item insert(Item item) throws Exception{
 		System.out.println();
 		System.out.println();
-
+		System.out.println();
 
 		return itemRepository.save(item);
 	}
