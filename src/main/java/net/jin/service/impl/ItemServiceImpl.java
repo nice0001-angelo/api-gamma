@@ -40,7 +40,6 @@ public class ItemServiceImpl implements ItemService{
 	//등록
 	@Override
 	public Item insert(Item item) throws Exception{
-		System.out.println();
 
 
 		return itemRepository.save(item);
