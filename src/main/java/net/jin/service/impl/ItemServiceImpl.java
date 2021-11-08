@@ -41,8 +41,7 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public Item insert(Item item) throws Exception{
 		System.out.println();
-		System.out.println();
-		System.out.println();
+
 
 		
 
