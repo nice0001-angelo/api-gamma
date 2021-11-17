@@ -50,6 +50,7 @@ public class BoardController {
 		board.setWriter(customUser.getUserId());
 		//등록하기 위해 boardService를 호출한다
 		boardService.insert(board);
+		System.out.println();
 		
 		//리턴 결과는 insert한 내용을 읽어온다 
 		return new ResponseEntity<Board>(boardService.read(board.getBoardNo()), HttpStatus.OK);
