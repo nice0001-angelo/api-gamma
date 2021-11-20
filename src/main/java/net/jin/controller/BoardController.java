@@ -52,7 +52,7 @@ public class BoardController {
 		boardService.insert(board);
 		System.out.println();
 		System.out.println();
-	
+		System.out.println();
 
 		
 		//리턴 결과는 insert한 내용을 읽어온다 
