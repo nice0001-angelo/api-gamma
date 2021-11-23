@@ -37,4 +37,8 @@ public class ChargeCoin {
 	@CreationTimestamp
 	private LocalDateTime regDate;
 	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+	@CreationTimestamp
+	private LocalDateTime updDate;
+	
 }
