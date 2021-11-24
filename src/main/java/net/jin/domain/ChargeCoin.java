@@ -6,12 +6,13 @@ package net.jin.domain;
 import java.time.*;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.*;
 
 import com.fasterxml.jackson.annotation.*;
 
-import jdk.vm.ci.meta.*;
 import lombok.*;
 
 /**
