@@ -30,6 +30,7 @@ public class CoinController {
 	@PreAuthorize("hasRole('MEMBER')")
 	@PostMapping(value = "/charge/{amount}", produces = "text/plain;charset=UTF-8")
 	public ResponseEntity<String> charge(@PathVariable("amount") int amount, @AuthenticationPrincipal CustomUser customUser) throws Exception {
+		System.out.println();
 		return ResponseEntity<String>;
 	}
 
