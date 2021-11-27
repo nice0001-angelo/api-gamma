@@ -12,6 +12,7 @@ import net.jin.domain.*;
 public interface CoinService {
 	
 	//코인충전처리
-	private void charge(ChargeCoin chargeCoin) throws Exception;
+	private void charge(ChargeCoin chargeCoin) throws Exception {
+	}
 
 }

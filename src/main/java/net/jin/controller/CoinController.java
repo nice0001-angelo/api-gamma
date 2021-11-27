@@ -3,6 +3,8 @@
  */
 package net.jin.controller;
 
+import java.util.*;
+
 import org.springframework.context.*;
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
@@ -39,10 +41,13 @@ public class CoinController {
 		chargeCoin.setUserNo(userNo);
 		chargeCoin.setAmount(amount);
 		
-		coinService.
+		coinService.charge(chargeCoin);
 		
+		String message = messageSource.getMessage("coin.chargingComplete", null, Locale.KOREAN);
+		
+		return new ResponseEntity<String>(message, HttpStatus.OK);
 
-		return ResponseEntity<String>;
+
 	}
 
 }
