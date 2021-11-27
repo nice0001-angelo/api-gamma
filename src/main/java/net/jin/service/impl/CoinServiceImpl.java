@@ -27,7 +27,7 @@ public class CoinServiceImpl implements CoinService {
 	@Transactional
 	@Override
 	public void charge(ChargeCoin chargeCoin) throws Exception{
-		Member memberEntity = memberRepository.getOne(chargeCoin.getUserNo());
+		Member memberEntity = memberRepository.getById(chargeCoin.getUserNo());
 		
 		int coin = memberEntity.getCoin();
 		int amount = chargeCoin.getAmount();
