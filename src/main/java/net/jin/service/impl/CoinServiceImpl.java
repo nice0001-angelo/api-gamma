@@ -24,6 +24,7 @@ public class CoinServiceImpl implements CoinService {
 	
 	private final MemberRepository memberRepository;
 	
+	//코인충전처리
 	@Transactional
 	@Override
 	public void charge(ChargeCoin chargeCoin) throws Exception{

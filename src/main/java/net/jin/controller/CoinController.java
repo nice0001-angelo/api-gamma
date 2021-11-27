@@ -39,7 +39,7 @@ public class CoinController {
 		chargeCoin.setUserNo(userNo);
 		chargeCoin.setAmount(amount);
 		
-		
+		coinService.
 		
 
 		return ResponseEntity<String>;
