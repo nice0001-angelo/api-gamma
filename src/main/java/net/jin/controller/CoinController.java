@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import lombok.*;
 import net.jin.common.security.domain.*;
+import net.jin.domain.*;
 import net.jin.service.*;
 
 /**
@@ -32,6 +33,15 @@ public class CoinController {
 	public ResponseEntity<String> charge(@PathVariable("amount") int amount, @AuthenticationPrincipal CustomUser customUser) throws Exception {
 
 		Long userNo = customUser.getUserNo();
+		
+		ChargeCoin chargeCoin = new ChargeCoin();
+		
+		chargeCoin.setUserNo(userNo);
+		chargeCoin.setAmount(amount);
+		
+		
+		
+
 		return ResponseEntity<String>;
 	}
 
