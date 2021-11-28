@@ -3,6 +3,8 @@
  */
 package net.jin.service.impl;
 
+import java.util.*;
+
 import javax.transaction.*;
 
 import org.springframework.stereotype.*;
@@ -38,6 +40,12 @@ public class CoinServiceImpl implements CoinService {
 		memberRepository.save(memberEntity);
 		
 		chargeCoinRepository.save(chargeCoin);
+	}
+	
+	//충전내역처리화면
+	@Override
+	public List<ChargeCoin> list(Long userNo) throws Exception{
+		chargeCoinRepository.fineall
 	}
 
 }
