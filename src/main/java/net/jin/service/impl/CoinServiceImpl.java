@@ -7,6 +7,8 @@ import java.util.*;
 
 import javax.transaction.*;
 
+import org.springframework.data.domain.*;
+import org.springframework.data.domain.Sort.*;
 import org.springframework.stereotype.*;
 
 import lombok.*;
@@ -45,7 +47,7 @@ public class CoinServiceImpl implements CoinService {
 	//충전내역처리화면
 	@Override
 	public List<ChargeCoin> list(Long userNo) throws Exception{
-		chargeCoinRepository.fineall
+		chargeCoinRepository.findAll(Sort.by(Direction.DESC, "historyNo"));
 	}
 
 }
