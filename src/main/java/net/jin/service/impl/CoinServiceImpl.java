@@ -47,7 +47,7 @@ public class CoinServiceImpl implements CoinService {
 	//충전내역처리화면
 	@Override
 	public List<ChargeCoin> list(Long userNo) throws Exception{
-		chargeCoinRepository.findAll(Sort.by(Direction.DESC, "historyNo"));
+		return chargeCoinRepository.findAll(Sort.by(Direction.DESC, "historyNo"));
 	}
 
 }
