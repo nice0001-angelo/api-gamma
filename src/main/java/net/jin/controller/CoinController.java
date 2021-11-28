@@ -49,5 +49,14 @@ public class CoinController {
 
 
 	}
+	
+	//충전 내역 화면
+	@PreAuthorize("hasRole('MEMBER')")
+	@GetMapping
+	public ResponseEntity<List<ChargeCoin>> list(@AuthenticationPrincipal CustomUser customUser) throws Exception{
+		Long userNo = customUser.getUserNo();
+		
+		return new ResponseEntity<>(coinService.list(userNo), HttpStatus.OK);
+	}
 
 }
