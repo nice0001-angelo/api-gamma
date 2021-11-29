@@ -68,13 +68,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/codegroups/**").access("hasRole('ADMIN')")
 		.antMatchers("/codedetails/**").access("hasRole('ADMIN')")
 		//회원게시판 웹경로 보안 권한 지정
-		.antMatchers("/boards/**").access("request.method == 'GET' ? permitAll : hasRole('ADMIN', 'MEMBER')")
+		.antMatchers("/boards/**").access("request.method == 'GET' ? permitAll : hasAnyRole('ADMIN', 'MEMBER')")
 		//공지사항 웹경로 보안 권한 지정
 		.antMatchers("/notices/**").access("request.method == 'GET' ? permitAll : hasRole('ADMIN')")
 		//상품관리 웹경로 보안 권한 지정
 		.antMatchers("/items/**").access("request.method == 'GET' ? permitAll : hasRole('ADMIN')")
 		//코인충전 웹 경로 보안 지정
 		.antMatchers("/coins/**").access("hasRole('MEMBER')")
+		//구매상품 웹 보안 경로 지정
+		.antMatchers("/useritems/**").access("hasAnyRole('ADMIN','MEMBER')")
 		.anyRequest().authenticated();
 	
 	}	
