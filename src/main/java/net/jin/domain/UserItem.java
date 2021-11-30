@@ -19,4 +19,7 @@ import lombok.*;
 @Table(name = "user_item")
 public class UserItem {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long userItemNo;
 }
