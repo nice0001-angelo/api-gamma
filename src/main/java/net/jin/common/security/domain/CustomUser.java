@@ -14,6 +14,7 @@ import net.jin.domain.*;
 
 /**
  * @author njh
+ * Custom 한 유저인데 고민 해볼것 세션에서 받나? User를 상속
  *
  */
 public class CustomUser extends User{

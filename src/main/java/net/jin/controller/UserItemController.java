@@ -3,15 +3,17 @@
  */
 package net.jin.controller;
 
+import java.util.List;
+
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
 import org.springframework.security.core.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
-import antlr.collections.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
 import net.jin.common.security.domain.*;
+import net.jin.domain.*;
 import net.jin.prop.*;
 import net.jin.service.*;
 
@@ -32,7 +34,7 @@ public class UserItemController {
 	//사용자 구매 상품 목록
 	@PreAuthorize("hasAnyRole('ADMIN','MEMBER')")
 	@GetMapping
-	public ResponseEntity<List> getUserItemList(@AuthenticationPrincipal CustomUser customerUser) throws Exception{
+	public ResponseEntity<List<UserItem>> getUserItemList(@AuthenticationPrincipal CustomUser customerUser) throws Exception{
 		
 		Long userNo = customerUser.getUserNo();
 		
