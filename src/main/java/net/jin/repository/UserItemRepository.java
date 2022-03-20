@@ -6,6 +6,7 @@ package net.jin.repository;
 import java.util.*;
 
 import org.springframework.data.jpa.repository.*;
+import org.springframework.stereotype.*;
 
 import net.jin.domain.*;
 
