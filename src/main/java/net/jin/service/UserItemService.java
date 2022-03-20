@@ -3,11 +3,8 @@
  */
 package net.jin.service;
 
-import java.util.List;
+import java.util.*;
 
-import org.springframework.stereotype.*;
-
-import antlr.collections.*;
 import net.jin.domain.*;
 
 /**
