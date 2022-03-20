@@ -13,5 +13,6 @@ import net.jin.domain.*;
  */
 public interface UserItemRepository extends JpaRepository<UserItem, Long> {
 	
+	
 
 }
