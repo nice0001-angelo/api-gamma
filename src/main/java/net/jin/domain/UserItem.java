@@ -20,7 +20,6 @@ import lombok.*;
  *
  */
 @EqualsAndHashCode(of = "userItemNo")
-@ToString
 @Entity
 @Table(name = "user_item")
 public class UserItem {
@@ -124,6 +123,12 @@ public class UserItem {
 	public void setUpdDate(LocalDateTime updDate) {
 		this.updDate = updDate;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "UserItem [userItemNo=" + userItemNo + ", userNo=" + userNo + ", itemId=" + itemId + ", itemName="
+				+ itemName + ", price=" + price + ", description=" + description + ", pictureUrl=" + pictureUrl
+				+ ", regDate=" + regDate + ", updDate=" + updDate + "]";
+	}
 	
 }
