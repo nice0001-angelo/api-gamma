@@ -3,6 +3,8 @@
  */
 package net.jin.repository;
 
+import java.util.*;
+
 import org.springframework.data.jpa.repository.*;
 
 import net.jin.domain.*;
@@ -13,6 +15,5 @@ import net.jin.domain.*;
  */
 public interface UserItemRepository extends JpaRepository<UserItem, Long> {
 	
-	
-
+	public List<UserItem> findByUserNo(Long userNo);
 }
