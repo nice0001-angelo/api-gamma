@@ -28,6 +28,8 @@ public class CoinServiceImpl implements CoinService {
 	
 	private final MemberRepository memberRepository;
 	
+	private final PayCoinRepository payCoinRepository;
+	
 	//코인충전처리
 	@Transactional
 	@Override
@@ -50,4 +52,9 @@ public class CoinServiceImpl implements CoinService {
 		return chargeCoinRepository.findAll(Sort.by(Direction.DESC, "historyNo"));
 	}
 
+	@Override
+	public List<PayCoin> listPayHistory(Long userNo) throws Exception {
+		return ;
+	}
+	
 }

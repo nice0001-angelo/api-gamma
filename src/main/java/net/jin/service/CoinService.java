@@ -19,4 +19,7 @@ public interface CoinService {
 	
 	//코인화면처리
 	public List<ChargeCoin> list(Long userNo) throws Exception;
+	
+	//사용자의 상품 구매내역을 반환한다
+	public List<PayCoin> listPayHistory(Long userNo) throws Exception;
 }
