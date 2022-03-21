@@ -58,5 +58,14 @@ public class CoinController {
 		
 		return new ResponseEntity<>(coinService.list(userNo), HttpStatus.OK);
 	}
+	
+	//사용자의 구매내역 보기 요청을 처리한다
+	@PreAuthorize("hasRole('MEMBER')")
+	@GetMapping(value = "/pay")
+	public ResponseEntity<List<PayCoin>> listPayHistory(@AuthenticationPrincipal CustomUser customUser) throws Exception{
+		Long userNo = customUser.getUserNo();
+		
+		return ResponseEntity<List<PayCoin>>(coinService.listPayHistory(userNo), HttpStatus.OK);
+	}
 
 }
