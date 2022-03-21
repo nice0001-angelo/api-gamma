@@ -3,6 +3,7 @@
  */
 package net.jin.service.impl;
 
+import java.time.*;
 import java.util.*;
 
 import javax.transaction.*;
@@ -54,7 +55,24 @@ public class CoinServiceImpl implements CoinService {
 
 	@Override
 	public List<PayCoin> listPayHistory(Long userNo) throws Exception {
-		return ;
+		
+		//list array를 레파지토리에서 받아 온다(컬럼, 레코드)
+		List<Object[]> listArr = payCoinRepository.listPayHistory(userNo);
+		
+		List<PayCoin> payCoinList = new ArrayList<PayCoin>();
+		
+		for(Object[] x : listArr) {
+			
+			PayCoin payCoin = new PayCoin();
+			
+			payCoin.setHistoryNo((Long)x[0]);
+			payCoin.setUserNo((Long)x[1]);
+			payCoin.setItemId((Long)x[2]);
+			payCoin.setItemName((String)x[3]);
+			payCoin.setAmount((int)x[4]);
+			payCoin.setRegDate((LocalDateTime)x[5]);
+		}
+		return payCoinList.add(payCoin);
 	}
 	
 }
