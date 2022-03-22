@@ -65,7 +65,7 @@ public class CoinController {
 	public ResponseEntity<List<PayCoin>> listPayHistory(@AuthenticationPrincipal CustomUser customUser) throws Exception{
 		Long userNo = customUser.getUserNo();
 		
-		return ResponseEntity<List<PayCoin>>(coinService.listPayHistory(userNo), HttpStatus.OK);
+		return new ResponseEntity<List<PayCoin>>(coinService.listPayHistory(userNo), HttpStatus.OK);
 	}
 
 }
