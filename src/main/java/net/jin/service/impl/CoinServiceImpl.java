@@ -71,8 +71,10 @@ public class CoinServiceImpl implements CoinService {
 			payCoin.setItemName((String)x[3]);
 			payCoin.setAmount((int)x[4]);
 			payCoin.setRegDate((LocalDateTime)x[5]);
+			
+			payCoinList.add(payCoin);
 		}
-		return payCoinList.add(payCoin);
+		return payCoinList;
 	}
 	
 }
