@@ -101,6 +101,11 @@ public class PayCoin {
 	public void setUpdDate(LocalDateTime updDate) {
 		this.updDate = updDate;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "PayCoin [historyNo=" + historyNo + ", userNo=" + userNo + ", itemId=" + itemId + ", itemName="
+				+ itemName + ", amount=" + amount + ", regDate=" + regDate + ", updDate=" + updDate + "]";
+	}
 	
 }
