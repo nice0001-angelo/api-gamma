@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		log.info("Security Configuring....");
 		
 		//폼로그인기능과 베이직인증 비활성화
-		httpSecurity.formLogin().disable().httpBasic().disable();
+//		httpSecurity.formLogin().disable().httpBasic().disable();
 		
 		//CORS 사용자 설정
 		httpSecurity.cors();

@@ -36,6 +36,11 @@ public class ItemController {
 	
 	private final ShopProperties shopProperties;
 	
+	//업무로직을 처리할 서비스 객체를 필드로 선언한다
+	private final MemberService memberService;
+	
+	 
+	
 	//전체목록조회
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<List<Item>> list() throws Exception{

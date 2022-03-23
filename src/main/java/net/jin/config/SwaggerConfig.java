@@ -3,9 +3,10 @@
  */
 package net.jin.config;
 
+import java.util.*;
+
 import org.springframework.context.annotation.*;
 
-import io.swagger.annotations.*;
 import springfox.documentation.builders.*;
 import springfox.documentation.service.*;
 import springfox.documentation.spi.*;
@@ -32,6 +33,8 @@ public class SwaggerConfig {
     @Bean
     public Docket commonApi() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .consumes(getConsumeContentTypes())
+                .produces(getProduceContentTypes())
                 .groupName("API with Swagger")
                 .apiInfo(this.apiInfo())
                 .select()
@@ -39,5 +42,18 @@ public class SwaggerConfig {
                         .basePackage("net.jin.controller"))
                 .paths(PathSelectors.ant("/**"))
                 .build();
+    }
+    
+    private Set<String> getConsumeContentTypes() {
+        Set<String> consumes = new HashSet<>();
+        consumes.add("application/json;charset=UTF-8");
+        consumes.add("application/x-www-form-urlencoded");
+        return consumes;
+    }
+    
+    private Set<String> getProduceContentTypes() {
+        Set<String> produces = new HashSet<>();
+        produces.add("application/json;charset=UTF-8");
+        return produces;
     }
 }
