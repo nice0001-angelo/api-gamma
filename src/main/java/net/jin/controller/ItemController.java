@@ -39,6 +39,8 @@ public class ItemController {
 	//업무로직을 처리할 서비스 객체를 필드로 선언한다
 	private final MemberService memberService;
 	
+	private final UserItemService userItemService;
+	
 	 
 	
 	//전체목록조회
