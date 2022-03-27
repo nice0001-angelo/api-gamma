@@ -7,8 +7,10 @@ import java.io.*;
 import java.util.*;
 
 import org.apache.commons.io.*;
+import org.springframework.context.*;
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
+import org.springframework.security.core.annotation.*;
 import org.springframework.util.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.*;
@@ -17,6 +19,7 @@ import com.fasterxml.jackson.databind.*;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
+import net.jin.common.security.domain.*;
 import net.jin.domain.*;
 import net.jin.prop.*;
 import net.jin.service.*;
@@ -41,6 +44,8 @@ public class ItemController {
 	
 	private final UserItemService userItemService;
 	
+	//메시지를 처리할 MessageSource를 필드로 선언한다
+	private final MessageSource messageSource;
 	 
 	
 	//전체목록조회
@@ -49,12 +54,12 @@ public class ItemController {
 		return new ResponseEntity<List<Item>>(itemService.list(), HttpStatus.OK);
 	}
 	
-	
 	//상세목록조회
 	@RequestMapping(value = "{itemId}", method = RequestMethod.GET)
 	public ResponseEntity<Item> read(@PathVariable("itemId") Long itemId) throws Exception{
 		return new ResponseEntity<Item>(itemService.read(itemId), HttpStatus.OK);
 	}
+	
 	//등록
 	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "", method = RequestMethod.POST)
@@ -246,6 +251,15 @@ public class ItemController {
 			in.close();
 		}
 		return entity;
+	}
+	
+	//상품 구매 요청을 처리한다
+	@GetMapping(value = "/buy/{itemid}", produces = "text/plain;charset=UTF-8")
+	public ResponseEntity<String> buy(@PathVariable("itemid") Long itemId, @AuthenticationPrincipal CustomUser customUser) throws Exception{
+		
+		Long userNo = customUser.getUserNo();
+		
+		return new ResponseEntity<String>(message, HttpStatus.OK);
 	}
 
 }
