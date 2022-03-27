@@ -13,6 +13,7 @@ import net.jin.domain.*;
  * @author njh
  *
  */
+@Service
 public interface UserItemService {
 	
 	//사용자 구매 상품 목록
