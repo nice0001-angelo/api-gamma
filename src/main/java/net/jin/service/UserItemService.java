@@ -20,6 +20,6 @@ public interface UserItemService {
 	public List<UserItem> list(Long userNo) throws Exception; 
 	
 	//등록
-	//public void register()
+	public void register(Member member, Item item) throws Exception;
 
 }

@@ -148,6 +148,15 @@ public class MemberServiceImpl implements MemberService{
 		
 		memberRepository.save(memberEntity);
 	}
+
+	@Override
+	public int getCoin(Long userNo) throws Exception {
+		
+		Member member = memberRepository.getById(userNo);
+		
+		return member.getCoin();
+	}
+	
 	
 }
 

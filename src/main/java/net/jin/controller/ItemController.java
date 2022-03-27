@@ -259,6 +259,16 @@ public class ItemController {
 		
 		Long userNo = customUser.getUserNo();
 		
+		Member member = memberService.read(userNo);
+		
+		member.setCoin(memberService.getCoin(userNo));
+		
+		Item item = itemService.read(itemId);
+		
+		userItemService.register(member, item);
+		
+		String message = messageSource.getMessage("item.purchaseComplete", null, Locale.KOREAN);
+		
 		return new ResponseEntity<String>(message, HttpStatus.OK);
 	}
 

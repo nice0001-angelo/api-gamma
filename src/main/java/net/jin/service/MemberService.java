@@ -33,4 +33,7 @@ public interface MemberService {
 	//Admin settig
 	public void setupAdmin(Member member) throws Exception;
 	
+	//사용자 보유코인은 반환한다
+	public int getCoin(Long userNo) throws Exception;
+	
 }

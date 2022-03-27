@@ -10,10 +10,18 @@ import net.jin.service.*;
 
 @Slf4j
 @Service
-public class UserItemServiceImpl implements UserItemService{@Override
+public class UserItemServiceImpl implements UserItemService{
+	
+	@Override
 	public List<UserItem> list(Long userNo) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void register(Member member, Item item) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
