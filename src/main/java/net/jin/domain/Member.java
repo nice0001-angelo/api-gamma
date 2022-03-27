@@ -23,9 +23,6 @@ import lombok.*;
  *
  */
 @JsonIgnoreProperties(value="hibernateLazyInitializer")
-@Getter
-@Setter
-@ToString
 @EqualsAndHashCode(of="userNo")
 @Entity
 @Table(name="member")
@@ -73,10 +70,84 @@ public class Member {
 	public void clearAuthList() {
 		authList.clear();
 	}
-	
-	
-	
-	
-	
+
+	public Long getUserNo() {
+		return userNo;
+	}
+
+	public void setUserNo(Long userNo) {
+		this.userNo = userNo;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getUserPw() {
+		return userPw;
+	}
+
+	public void setUserPw(String userPw) {
+		this.userPw = userPw;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+	public int getCoin() {
+		return coin;
+	}
+
+	public void setCoin(int coin) {
+		this.coin = coin;
+	}
+
+	public LocalDateTime getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(LocalDateTime regDate) {
+		this.regDate = regDate;
+	}
+
+	public LocalDateTime getUpdDate() {
+		return updDate;
+	}
+
+	public void setUpdDate(LocalDateTime updDate) {
+		this.updDate = updDate;
+	}
+
+	public List<MemberAuth> getAuthList() {
+		return authList;
+	}
+
+	public void setAuthList(List<MemberAuth> authList) {
+		this.authList = authList;
+	}
+
+	@Override
+	public String toString() {
+		return "Member [userNo=" + userNo + ", userId=" + userId + ", userPw=" + userPw + ", userName=" + userName
+				+ ", job=" + job + ", coin=" + coin + ", regDate=" + regDate + ", updDate=" + updDate + ", authList="
+				+ authList + "]";
+	}
 	
 }
