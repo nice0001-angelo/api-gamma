@@ -17,11 +17,12 @@ public class UserItemServiceImpl implements UserItemService{
 	
 	private final PayCoinRepository payCoinRepository;
 	
-	private final MemberRepository memberRepository;
+	private final MemberRepository memberRepository; 
 	
 	@Override
 	public List<UserItem> list(Long userNo) throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println();
 		return null;
 	}
 
