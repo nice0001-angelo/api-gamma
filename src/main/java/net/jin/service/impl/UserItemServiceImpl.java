@@ -4,12 +4,17 @@ import java.util.*;
 
 import org.springframework.stereotype.*;
 
+import lombok.*;
 import lombok.extern.slf4j.*;
 import net.jin.domain.*;
 import net.jin.repository.*;
 import net.jin.service.*;
 
 @Slf4j
+@RequiredArgsConstructor //이게 없으면 private final UserItemRepository userItemRepository; 오류 난다. 
+//@RequiredArgsConstructor 는 필드에서 final 이 붙어있는 것들만 생성자 주입을 해준다.
+//이렇게 하지 않으면 private UserItemRepository userItemRepository 로 작성하고 생성자 인젝션을 통해서 필드 초기화 해야 한다.
+//https://blog.naver.com/tnwnsrla/222676955788 참고
 @Service
 public class UserItemServiceImpl implements UserItemService{
 	

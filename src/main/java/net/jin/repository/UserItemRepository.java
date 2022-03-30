@@ -17,4 +17,8 @@ import net.jin.domain.*;
 public interface UserItemRepository extends JpaRepository<UserItem, Long> {
 	
 	public List<UserItem> findByUserNo(Long userNo);
+	
+	
+	@Query
+	public List<Object[]> listUserItem(Long userNo);
 }
