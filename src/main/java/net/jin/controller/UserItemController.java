@@ -47,7 +47,12 @@ public class UserItemController {
 	//사용자 구매상품 단품 보기
 	@PreAuthorize("hasAnyRole('ADMIN','MEMBER')")
 	@GetMapping("/{userItemNo}")
-	public ResponseEntity<UserItem> getUserItemRead
+	public ResponseEntity<UserItem> getUserItemRead(@PathVariable("{userItemNo") Long userItemNo) throws Exception{
+		
+		UserItem userItem = userItemService.read(userItemNo);
+		
+		return new ResponseEntity<UserItem>(userItem, HttpStatus.OK);
+	}
 	
 	
 

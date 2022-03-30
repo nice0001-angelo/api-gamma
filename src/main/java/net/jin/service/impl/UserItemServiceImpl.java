@@ -19,6 +19,7 @@ public class UserItemServiceImpl implements UserItemService{
 	
 	private final MemberRepository memberRepository; 
 	
+	//사용자 구매 상품 전체 목록
 	@Override
 	public List<UserItem> list(Long userNo) throws Exception {
 		// TODO Auto-generated method stub
@@ -33,4 +34,12 @@ public class UserItemServiceImpl implements UserItemService{
 		
 	}
 
+	//사용자 구매상품 단품 보기
+	@Override
+	public UserItem read(Long userItemNo) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }
