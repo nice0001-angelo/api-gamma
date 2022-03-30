@@ -2,6 +2,8 @@ package net.jin.service.impl;
 
 import java.util.*;
 
+import javax.transaction.*;
+
 import org.springframework.stereotype.*;
 
 import lombok.*;
@@ -24,6 +26,18 @@ public class UserItemServiceImpl implements UserItemService{
 	
 	private final MemberRepository memberRepository; 
 	
+
+	//등록
+	@Transactional
+	@Override
+	public void register(Member member, Item item) throws Exception {
+		Long userNo = member.getUserNo();
+		Long itemId = item.getItemId();
+		int price = item.getPrice();
+		
+	}
+
+	
 	//사용자 구매 상품 전체 목록
 	@Override
 	public List<UserItem> list(Long userNo) throws Exception {
@@ -32,12 +46,6 @@ public class UserItemServiceImpl implements UserItemService{
 		return null;
 	}
 
-	//등록
-	@Override
-	public void register(Member member, Item item) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
 
 	//사용자 구매상품 단품 보기
 	@Override
