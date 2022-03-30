@@ -35,6 +35,10 @@ public class UserItemServiceImpl implements UserItemService{
 		Long itemId = item.getItemId();
 		int price = item.getPrice();
 		
+		UserItem userItem = new UserItem();
+		userItem.setUserNo(userNo);
+		userItem.setItemId(itemId);
+		
 	}
 
 	
