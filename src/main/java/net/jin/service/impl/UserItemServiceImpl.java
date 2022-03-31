@@ -39,6 +39,11 @@ public class UserItemServiceImpl implements UserItemService{
 		userItem.setUserNo(userNo);
 		userItem.setItemId(itemId);
 		
+		PayCoin payCoin = new PayCoin();
+		payCoin.setUserNo(userNo);
+		payCoin.setItemId(itemId);
+		payCoin.setAmount(price);
+		
 	}
 
 	
