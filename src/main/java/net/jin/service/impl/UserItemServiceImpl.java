@@ -62,8 +62,7 @@ public class UserItemServiceImpl implements UserItemService{
 	//사용자 구매 상품 전체 목록
 	@Override
 	public List<UserItem> list(Long userNo) throws Exception {
-		// TODO Auto-generated method stub
-		System.out.println();
+		List<Object[]> valueArrays =  userItemRepository.listUserItem(userNo);
 		return null;
 	}
 
