@@ -52,8 +52,9 @@ public class UserItemServiceImpl implements UserItemService{
 		//멤버 객체에서 갖고 있는 코인을 가져와서 amout를 빼서 차감
 		memberEntity.setCoin(coin-amount);
 		
-		
-		
+		userItemRepository.save(userItem);
+		payCoinRepository.save(payCoin);
+		memberRepository.save(memberEntity);
 		
 	}
 
