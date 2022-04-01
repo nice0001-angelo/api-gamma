@@ -50,7 +50,7 @@ public class UserItemController {
 	public ResponseEntity<UserItem> getUserItemRead(@PathVariable("{userItemNo") Long userItemNo) throws Exception{
 		
 		UserItem userItem = userItemService.read(userItemNo);
-		
+		System.out.println();
 		return new ResponseEntity<UserItem>(userItem, HttpStatus.OK);
 	}
 	
