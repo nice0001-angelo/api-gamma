@@ -4,6 +4,8 @@ import java.util.*;
 
 import javax.transaction.*;
 
+import org.springframework.data.domain.*;
+import org.springframework.data.domain.Sort.*;
 import org.springframework.stereotype.*;
 
 import lombok.*;
@@ -62,9 +64,12 @@ public class UserItemServiceImpl implements UserItemService{
 	//사용자 구매 상품 전체 목록
 	@Override
 	public List<UserItem> list(Long userNo) throws Exception {
-		List<Object[]> valueArrays =  userItemRepository.listUserItem(userNo);
-		return null;
-	}
+		//List<Object[]> valueArrays =  userItemRepository.listUserItem(userNo);
+		
+		
+		
+		return userItemRepository.findAll(Sort.by(Direction.DESC,"userNo"));
+			}
 
 
 	//사용자 구매상품 단품 보기
