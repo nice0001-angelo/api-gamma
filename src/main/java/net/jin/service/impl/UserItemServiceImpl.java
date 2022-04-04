@@ -66,6 +66,7 @@ public class UserItemServiceImpl implements UserItemService{
 	public List<UserItem> list(Long userNo) throws Exception {
 		//List<Object[]> valueArrays =  userItemRepository.listUserItem(userNo);
 		List<UserItem> userItemList = new ArrayList<UserItem>();
+		System.out.println();
 		
 		
 		return userItemRepository.findAll(Sort.by(Direction.DESC,"userNo"));
