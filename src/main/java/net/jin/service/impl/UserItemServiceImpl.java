@@ -67,6 +67,7 @@ public class UserItemServiceImpl implements UserItemService{
 		//List<Object[]> valueArrays =  userItemRepository.listUserItem(userNo);
 		List<UserItem> userItemList = new ArrayList<UserItem>();
 		System.out.println();
+		System.out.println();
 		
 		
 		return userItemRepository.findAll(Sort.by(Direction.DESC,"userNo"));
