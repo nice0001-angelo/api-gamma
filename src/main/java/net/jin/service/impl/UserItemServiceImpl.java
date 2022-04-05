@@ -64,10 +64,13 @@ public class UserItemServiceImpl implements UserItemService{
 	//사용자 구매 상품 전체 목록
 	@Override
 	public List<UserItem> list(Long userNo) throws Exception {
-		//List<Object[]> valueArrays =  userItemRepository.listUserItem(userNo);
+		List<Object[]> valueArrays =  userItemRepository.listUserItem(userNo);
 		List<UserItem> userItemList = new ArrayList<UserItem>();
-		System.out.println();
-		System.out.println();
+
+		for(Object[] valueArray: valueArrays) {
+			valueArray[0];
+			valueArray[1];
+		}
 		
 		
 		return userItemRepository.findAll(Sort.by(Direction.DESC,"userNo"));
