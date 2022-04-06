@@ -70,6 +70,7 @@ public class UserItemServiceImpl implements UserItemService{
 		for(Object[] valueArray: valueArrays) {
 			valueArray[0];
 			valueArray[1];
+			valueArray[2];
 		}
 		
 		
