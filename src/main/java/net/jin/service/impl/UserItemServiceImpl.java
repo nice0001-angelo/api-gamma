@@ -72,6 +72,7 @@ public class UserItemServiceImpl implements UserItemService{
 			valueArray[1];
 			valueArray[2];
 			valueArray[3];
+			valueArray[4];
 		}
 		
 		
