@@ -68,6 +68,7 @@ public class UserItemServiceImpl implements UserItemService{
 		List<UserItem> userItemList = new ArrayList<UserItem>();
 
 		for(Object[] valueArray: valueArrays) {
+			userItemList
 			valueArray[0];
 			valueArray[1];
 			valueArray[2];
