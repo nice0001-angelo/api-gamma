@@ -65,10 +65,12 @@ public class UserItemServiceImpl implements UserItemService{
 	@Override
 	public List<UserItem> list(Long userNo) throws Exception {
 		List<Object[]> valueArrays =  userItemRepository.listUserItem(userNo);
+		
 		List<UserItem> userItemList = new ArrayList<UserItem>();
 
 		for(Object[] valueArray: valueArrays) {
-			userItemList
+			userItemList.setUserItemNo((Long)valueArray[0]);
+			userItemList.setUserNo((Long)valueArray[1]);
 			valueArray[0];
 			valueArray[1];
 			valueArray[2];
