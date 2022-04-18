@@ -1,5 +1,6 @@
 package net.jin.service.impl;
 
+import java.time.*;
 import java.util.*;
 
 import javax.transaction.*;
@@ -73,11 +74,18 @@ public class UserItemServiceImpl implements UserItemService{
 			
 			userItem.setUserItemNo((Long)valueArray[0]);
 			userItem.setUserNo((Long)valueArray[1]);
+			userItem.setItemId((Long)valueArray[2]);
+			userItem.setRegDate((LocalDateTime)valueArray[3]);
+			userItem.setItemName((String)valueArray[4]);
+			userItem.setPrice((int)valueArray[5]);
+			userItem.setDescription((String)valueArray[6]);
+			userItem.setPictureUrl((String)valueArray[7]);
+			
+			userItemList.add(userItem);
 
 		}
 		
-		
-		return userItemRepository.findAll(Sort.by(Direction.DESC,"userNo"));
+		return userItemList;
 	}
 	
 
