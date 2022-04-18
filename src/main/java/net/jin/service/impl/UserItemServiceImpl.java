@@ -69,21 +69,18 @@ public class UserItemServiceImpl implements UserItemService{
 		List<UserItem> userItemList = new ArrayList<UserItem>();
 
 		for(Object[] valueArray: valueArrays) {
-			userItemList.setUserItemNo((Long)valueArray[0]);
-			userItemList.setUserNo((Long)valueArray[1]);
-			valueArray[0];
-			valueArray[1];
-			valueArray[2];
-			valueArray[3];
-			valueArray[4];
-			valueArray[5];
-			valueArray[5];
-			valueArray[6];
+			UserItem userItem = new UserItem();
+			
+			userItem.setUserItemNo((Long)valueArray[0]);
+			userItem.setUserNo((Long)valueArray[1]);
+
 		}
 		
 		
 		return userItemRepository.findAll(Sort.by(Direction.DESC,"userNo"));
-			}
+	}
+	
+
 
 
 	//사용자 구매상품 단품 보기

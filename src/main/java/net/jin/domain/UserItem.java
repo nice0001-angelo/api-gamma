@@ -19,9 +19,9 @@ import lombok.*;
  * @author njh
  *
  */
-@EqualsAndHashCode(of = "userItemNo")
+@EqualsAndHashCode(of="userItemNo")
 @Entity
-@Table(name = "user_item")
+@Table(name="user_item")
 public class UserItem {
 
 	@Id
@@ -29,26 +29,22 @@ public class UserItem {
 	private Long userItemNo;
 	
 	private Long userNo;
-	
 	private Long itemId;
 	
 	@Transient
 	private String itemName;
-	
 	@Transient
 	private Integer price;
-	
 	@Transient
 	private String description;
-	
 	@Transient
 	private String pictureUrl;
 	
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm")
 	@CreationTimestamp
 	private LocalDateTime regDate;
 	
-	@JsonFormat(pattern = "yyyy-MM dd HH:mm")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm")
 	@UpdateTimestamp
 	private LocalDateTime updDate;
 
@@ -130,5 +126,6 @@ public class UserItem {
 				+ itemName + ", price=" + price + ", description=" + description + ", pictureUrl=" + pictureUrl
 				+ ", regDate=" + regDate + ", updDate=" + updDate + "]";
 	}
-	
+
 }
+
