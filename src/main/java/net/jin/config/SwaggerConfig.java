@@ -33,8 +33,8 @@ public class SwaggerConfig {
     @Bean
     public Docket commonApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .consumes(getConsumeContentTypes())
-                .produces(getProduceContentTypes())
+                //.consumes(getConsumeContentTypes())
+                //.produces(getProduceContentTypes())
                 .groupName("API with Swagger")
                 .apiInfo(this.apiInfo())
                 .select()
