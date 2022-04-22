@@ -92,6 +92,7 @@ public class ItemController {
 		MultipartFile pictureFile = item.getPicture();
 		MultipartFile previewFile = item.getPreview();
 		
+		System.out.println();
 		//pictureFile, previewFile 에서 이름, byte수 가져오기 uploadFile method 정의 필요
 		String createdPictureFilename = uploadFile(pictureFile.getOriginalFilename(),pictureFile.getBytes());
 		String createdPreviewFilename = uploadFile(previewFile.getOriginalFilename(),previewFile.getBytes());
