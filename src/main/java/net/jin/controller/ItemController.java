@@ -101,6 +101,9 @@ public class ItemController {
 		item.setPictureUrl(createdPictureFilename);
 		item.setPreviewUrl(createdPreviewFilename);
 		
+		System.out.println();
+		System.out.println();
+		
 		itemService.insert(item);
 		
 //		Item createdItem = new Item();
