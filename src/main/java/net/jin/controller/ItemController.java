@@ -271,6 +271,8 @@ public class ItemController {
 		
 		userItemService.register(member, item);
 		
+		System.out.println();
+		
 		String message = messageSource.getMessage("item.purchaseComplete", null, Locale.KOREAN);
 		
 		return new ResponseEntity<String>(message, HttpStatus.OK);
