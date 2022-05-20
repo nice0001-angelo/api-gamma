@@ -77,6 +77,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/coins/**").access("hasRole('MEMBER')")
 		//구매상품 웹 보안 경로 지정
 		.antMatchers("/useritems/**").access("hasAnyRole('ADMIN','MEMBER')")
+		//공개자료 웹 경로 보안 지정
+		.antMatchers("/pds/**").access("request.method == 'GET' ? permeitALL : hasRole('ADMIN')")
 		.anyRequest().authenticated();
 	
 	}	
