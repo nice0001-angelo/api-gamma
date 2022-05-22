@@ -43,6 +43,12 @@ public class pds {
 	@CreationTimestamp
 	private LocalDateTime regDate;
 	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+	@UpdateTimestamp
+	private LocalDateTime updDate;
+	
+	
+	
 	
 
 }
