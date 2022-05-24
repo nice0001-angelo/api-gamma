@@ -8,9 +8,9 @@ import java.util.*;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.*;
-import org.hibernate.annotations.Table;
 
 import com.fasterxml.jackson.annotation.*;
 
@@ -19,8 +19,8 @@ import com.fasterxml.jackson.annotation.*;
  *
  */
 @Entity
-@Table(name="pds")
-public class pds {
+@Table(name = "pds")
+public class Pds {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class pds {
 	//자료 파일과 연관관계 매핑
 	//@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "item_id")
-	//private List<PdsFile> pdsFiles = new ArrayList<PdsFile>();
+	private List<Pdsfile> pdsFiles = new ArrayList<Pdsfile>();
 	
 	@Transient
 	private String[] files;
@@ -48,12 +48,12 @@ public class pds {
 	@UpdateTimestamp
 	private LocalDateTime updDate;
 	
-	public void addItemFile(PdsFile itemFile) {
+	public void addItemFile(Pdsfile itemFile) {
 		pdsFiles.add(itemFile);
 	}
 	
 	public void clearItemfile() {
-		pdsfiles.clear();
+		pdsFiles.clear();
 	}
 
 	public Long getItemId() {
