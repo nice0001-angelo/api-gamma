@@ -31,9 +31,9 @@ public class Pds {
 	private String description;
 	
 	//자료 파일과 연관관계 매핑
-	//@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "item_id")
-	private List<Pdsfile> pdsFiles = new ArrayList<Pdsfile>();
+//	//@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "item_id")
+//	private List<Pdsfile> pdsFiles = new ArrayList<Pdsfile>();
 	
 	@Transient
 	private String[] files;
@@ -48,13 +48,13 @@ public class Pds {
 	@UpdateTimestamp
 	private LocalDateTime updDate;
 	
-	public void addItemFile(Pdsfile itemFile) {
-		pdsFiles.add(itemFile);
-	}
-	
-	public void clearItemfile() {
-		pdsFiles.clear();
-	}
+//	public void addItemFile(Pdsfile itemFile) {
+//		pdsFiles.add(itemFile);
+//	}
+//	
+//	public void clearItemfile() {
+//		pdsFiles.clear();
+//	}
 
 	public Long getItemId() {
 		return itemId;
