@@ -3,6 +3,7 @@
  */
 package net.jin.common.util;
 
+import java.io.*;
 import java.util.*;
 
 import org.springframework.util.*;
@@ -31,6 +32,14 @@ public class UploadFileUtils {
 		String uploadedFileName = makeuploadedFileName(uploadPath, savedPath, saveName);
 				
 		return uploadedFileName;
+	}
+	
+	private static String makeuploadedFileName(String uploadPath, String path, String fileName) throws Exception {
+	
+		String uploadedFileName = uploadPath + path + File.separator + fileName;
+		
+		return uploadedFileName.substring(uploadPath.length()).replace(File.separatorChar, '/');
+		
 	}
 	
 	
