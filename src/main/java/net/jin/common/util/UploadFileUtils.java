@@ -38,6 +38,8 @@ public class UploadFileUtils {
 	
 		String uploadedFileName = uploadPath + path + File.separator + fileName;
 		
+		System.out.println();
+		
 		return uploadedFileName.substring(uploadPath.length()).replace(File.separatorChar, '/');
 		
 	}
