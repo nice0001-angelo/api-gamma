@@ -32,13 +32,15 @@ public class UploadFileUtils {
 		String uploadedFileName = makeuploadedFileName(uploadPath, savedPath, saveName);
 				
 		return uploadedFileName;
+		
+		System.out.println();
 	}
 	
 	private static String makeuploadedFileName(String uploadPath, String path, String fileName) throws Exception {
 	
 		String uploadedFileName = uploadPath + path + File.separator + fileName;
 		
-		System.out.println();
+		System.out.println();//05031186525
 		
 		return uploadedFileName.substring(uploadPath.length()).replace(File.separatorChar, '/');
 		
