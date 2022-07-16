@@ -4,6 +4,7 @@
 package net.jin.common.util;
 
 import java.io.*;
+import java.text.*;
 import java.util.*;
 
 import org.springframework.util.*;
@@ -33,14 +34,11 @@ public class UploadFileUtils {
 				
 		return uploadedFileName;
 		
-		System.out.println();
 	}
 	
 	private static String makeuploadedFileName(String uploadPath, String path, String fileName) throws Exception {
 	
 		String uploadedFileName = uploadPath + path + File.separator + fileName;
-		
-		System.out.println();//05031186525
 		
 		return uploadedFileName.substring(uploadPath.length()).replace(File.separatorChar, '/');
 		
@@ -48,4 +46,34 @@ public class UploadFileUtils {
 	
 	
 
+	private static String calcPath(String uploadPath) {
+		Calendar cal = Calendar.getInstance();
+		
+		String yearPath = File.separator + cal.get(Calendar.YEAR);
+		
+		String monthPath = yearPath +  File.separator + new DecimalFormat("00").format(cal.get(Calendar.MONTH)+1) ;
+		
+		String datePath = monthPath + File.pathSeparator + new DecimalFormat("00").format(cal.get(Calendar.DATE));
+		
+		makeDir(uploadPath, yearPath, monthPath, datePath);
+		
+		log.info(datePath);
+		
+		return datePath;
+	}
+	
+	private static void makeDir(String uploadPath, String... paths) {
+		if (new File(paths[paths.length-1]).exists()) {
+			return;
+		}
+		
+		for(String path : paths) {
+			File dirPath = new File(uploadPath+path);
+			
+			if(!dirPath.exists()) {
+				dirPath.mkdir();
+			}
+		}
+		
+	}
 }
