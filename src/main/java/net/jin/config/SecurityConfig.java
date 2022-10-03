@@ -80,10 +80,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		//공개자료 웹 경로 보안 지정
 		.antMatchers("/pds/**").access("request.method == 'GET' ? permeitALL : hasRole('ADMIN')")
 		//Swagger 경로 보안 지정(permitAll())
-		.antMatchers("v2/api-docs",
-				"/swagger-resources/**",
-				"/swagger-ui.html/**",
-				"/swagger*/**").permitAll()
+		.antMatchers("/v2/api-docs",
+				     "/v2/api-docs/**",
+				     "/swagger-resources/**",
+				     "/swagger-ui.html/**",
+				     "/swagger*/**").permitAll()
 		.anyRequest().authenticated();
 	
 	}	
