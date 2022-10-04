@@ -41,14 +41,14 @@ public class NoticeController {
 	}
 	
 	//등록
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<Notice> insert(@Validated @RequestBody Notice notice) throws Exception{
 		return new ResponseEntity<Notice>(noticeService.insert(notice), HttpStatus.OK);
 	}
 	
 	//삭제
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/{noticeNo}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> delete(@PathVariable("noticeNo") Long noticeNo) throws Exception{
 		noticeService.delete(noticeNo);
@@ -56,7 +56,7 @@ public class NoticeController {
 	}
 	
 	//수정
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/{noticeNo}", method = RequestMethod.PUT)
 	public ResponseEntity<Notice> update(@PathVariable("noticeNo") Long noticeNo, @Validated @RequestBody Notice notice) throws Exception{
 		return new ResponseEntity<Notice>(noticeService.update(notice), HttpStatus.OK);

@@ -43,25 +43,21 @@ public class BoardController {
 	
 	
 	//등록
-	@PreAuthorize("hasRole('MEMBER')")
+	//@PreAuthorize("hasRole('MEMBER')")
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<Board> insert(@Validated @RequestBody Board board, @AuthenticationPrincipal CustomUser customUser) throws Exception{
 		//customerUser로 부터 UserId를 가져다가 board 변수에 담고
 		board.setWriter(customUser.getUserId());
 		//등록하기 위해 boardService를 호출한다
 		boardService.insert(board);
-		System.out.println();
-		System.out.println();
 
-
-		
 		//리턴 결과는 insert한 내용을 읽어온다 
 		return new ResponseEntity<Board>(boardService.read(board.getBoardNo()), HttpStatus.OK);
 	}
 	
 	
 	//삭제
-	@PreAuthorize("hasRole('MEMBER' and principal.username == #writer) or hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('MEMBER' and principal.username == #writer) or hasRole('ADMIN')")
 	@RequestMapping(value = "/{boardNo}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Long boardNo, @RequestParam("writer") String writer) throws Exception{
 		boardService.delete(boardNo);
@@ -70,7 +66,7 @@ public class BoardController {
 	
 	
 	//수정
-	@PreAuthorize("hasRole('MEMBER' and principal.username == #board.writer) or hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('MEMBER' and principal.username == #board.writer) or hasRole('ADMIN')")
 	@RequestMapping(value = "/{boardNo}", method = RequestMethod.PUT)
 	public ResponseEntity<Board> update(@PathVariable("boardNo") Long boardNo, @Validated @RequestBody Board board) throws Exception{
 		

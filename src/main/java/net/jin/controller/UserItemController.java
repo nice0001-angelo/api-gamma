@@ -86,7 +86,7 @@ public class UserItemController {
 
 	private final ShopProperties shopProperties;
 
-	@PreAuthorize("hasAnyRole('ADMIN','MEMBER')")
+	//@PreAuthorize("hasAnyRole('ADMIN','MEMBER')")
 	@GetMapping
 	public ResponseEntity<List<UserItem>> list(@AuthenticationPrincipal CustomUser customUser) throws Exception {
 		Long userNo = customUser.getUserNo();
@@ -96,7 +96,7 @@ public class UserItemController {
 		return new ResponseEntity<>(service.list(userNo), HttpStatus.OK);
 	}
 	
-	@PreAuthorize("hasAnyRole('ADMIN','MEMBER')")
+	//@PreAuthorize("hasAnyRole('ADMIN','MEMBER')")
 	@GetMapping("/{userItemNo}")
 	public ResponseEntity<UserItem> read(@PathVariable("userItemNo") Long userItemNo) throws Exception {
 		UserItem userItem = service.read(userItemNo);
@@ -104,7 +104,7 @@ public class UserItemController {
 		return new ResponseEntity<>(userItem, HttpStatus.OK);
 	}
 	
-	@PreAuthorize("hasAnyRole('ADMIN','MEMBER')")
+	//@PreAuthorize("hasAnyRole('ADMIN','MEMBER')")
 	@GetMapping("/download/{userItemNo}")
 	public ResponseEntity<byte[]> download(@PathVariable("userItemNo") Long userItemNo) throws Exception {
 		log.info("download userItemNo = " + userItemNo);
