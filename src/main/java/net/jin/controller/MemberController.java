@@ -114,7 +114,7 @@ public class MemberController {
 	
 	//회원정보를 가져온다
 	//관리자와 회원 권한을 가진 사용자만 사용 가능하다
-	@PreAuthorize("hasRole('ADMIN','MEMBER')")
+	//@PreAuthorize("hasRole('ADMIN','MEMBER')")
 	@RequestMapping(value = "/myinfo", method = RequestMethod.GET)
 	public ResponseEntity<Member> getMyInfo(@AuthenticationPrincipal CustomUser customUser) throws Exception{
 		Long userNo = customUser.getUserNo();
