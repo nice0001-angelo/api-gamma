@@ -63,6 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		httpSecurity.authorizeRequests()
 		.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 		.antMatchers("/").permitAll()
+		.antMatchers("/authenticate/**").access("permitAll")
 		.antMatchers("/codes/**").access("permitAll")
 		.antMatchers("/users/**").access("permitAll")
 		.antMatchers("/codegroups/**").access("hasRole('ADMIN')")
